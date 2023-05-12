@@ -14,9 +14,9 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
-    void Update()
+    void Update() //Schlecht / passt sich an fps an
     {
-        moveDirection = Input.GetAxis("Horizontal");
+        moveDirection = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
     }

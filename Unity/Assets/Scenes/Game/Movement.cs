@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update() //Schlecht / passt sich an fps an
     {
+        //raw for instant movement
         moveDirection = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);

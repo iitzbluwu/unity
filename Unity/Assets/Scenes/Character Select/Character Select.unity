@@ -853,7 +853,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 5cf8a2694f33d554f9976f4156c3708b, type: 3}
+      - m_Target: {fileID: 81043659}
         m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1

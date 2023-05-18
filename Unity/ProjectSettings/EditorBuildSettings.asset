@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MEMEZ.unity
+    path: Assets/Scenes/MainMenu/MEMEZ.unity
     guid: e29fb33e4eae79f4ea17a6f11b7980b2
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Character Select/Character Select.unity
+    guid: b41ebebcbfc0f5a49af3ed7c36d5eadd
+  - enabled: 1
+    path: Assets/Scenes/Game/Game.unity
     guid: a7ff453aa3770f74d9e88ba9ca38ad69
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 1acbbabc82e2dec4b9bea807275db3b2
   m_configObjects: {}

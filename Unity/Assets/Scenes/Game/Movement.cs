@@ -23,6 +23,20 @@ public class Movement : MonoBehaviour
         //raw for instant movement
         moveDirection = Input.GetAxisRaw("Horizontal");
 
+        /*if (moveDirection > 0 && !facingRight)
+        {
+            FlipCharacter();
+        }
+        else if (moveDirection < 0 && facingRight)
+        {
+            FlipCharacter();
+        }*/
+
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
     }
+    /*private void FlipCharacter()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 100f, 0f);
+    }*/
 }

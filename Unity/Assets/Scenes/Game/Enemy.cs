@@ -12,7 +12,10 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;    
     }
-
+    void Update()
+    {
+        //animator.SetFloat("Speed", Mathf.Abs(moveDirection));
+    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

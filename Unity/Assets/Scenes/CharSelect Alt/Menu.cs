@@ -17,6 +17,8 @@ public class Menu : MonoBehaviour
     public GameObject C8;
     public GameObject C9;
 
+    public GameObject secutor;
+
 
     public GameObject CurrentAvatar;
     public GameObject NextAvatar;
@@ -84,6 +86,14 @@ public class Menu : MonoBehaviour
                 PlayerPrefs.Save();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
+        }
+        if (CurrentAvatar != C1)
+        {
+            secutor.SetActive(false);
+        }
+        else
+        {
+            secutor.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

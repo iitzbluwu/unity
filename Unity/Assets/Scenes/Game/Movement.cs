@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     public Animator animator;
 
     private Rigidbody2D rb;
-    private bool facingRight = true;
+    private bool isMirrored = false;
     private float moveDirection;
 
     private void Awake(){
@@ -33,6 +33,22 @@ public class Movement : MonoBehaviour
         }*/
 
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMirrored)
+        {
+            Transform objectTransform = transform;
+            objectTransform.localScale = new Vector3(-objectTransform.localScale.x, objectTransform.localScale.y, objectTransform.localScale.z);
+            isMirrored = true;
+            Debug.Log("is Mirrored");
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && isMirrored)
+        {
+            Transform objectTransform = transform;
+            objectTransform.localScale = new Vector3(-objectTransform.localScale.x, objectTransform.localScale.y, objectTransform.localScale.z);
+            isMirrored = false;
+            Debug.Log("is not Mirrored");
+
+        }
+
     }
     /*private void FlipCharacter()
     {

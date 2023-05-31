@@ -6,6 +6,10 @@ public class Jetztaber : MonoBehaviour
 {
     public GameObject BG1;
     public GameObject BG2;
+
+    public GameObject P1;
+    public GameObject P2;
+    public GameObject P3;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,12 @@ public class Jetztaber : MonoBehaviour
         {
             BG1.SetActive(false);
             BG2.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Avatar") == 2)
+        {
+            P1.SetActive(false);
+            P2.SetActive(true);
         }
     }
 

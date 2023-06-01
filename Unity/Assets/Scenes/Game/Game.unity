@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 5
   radius: 0.14
-  height: 2
+  height: 1
   canMove: 1
   maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
@@ -1338,10 +1338,10 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 1.2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  slowdownDistance: 0
+  pickNextWaypointDist: 0.5
+  endReachedDistance: 1.5
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
@@ -1381,7 +1381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708477978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.8, z: 22}
+  m_LocalPosition: {x: 3, y: -1, z: 22}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 1714560011}
   - component: {fileID: 1714560010}
   - component: {fileID: 1714560012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1672,6 +1672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
+  aiPath: {fileID: 1708477979}
 --- !u!50 &1877167016
 Rigidbody2D:
   serializedVersion: 4
@@ -1684,7 +1685,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1745,7 +1746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIeyPGHOQWQIAABIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMuS2jAQ/BVK57BlHtmF3BLDsjmwUEtSe/FFWGOsQpZcevAs/j0j2cYOqZwQ3T0zPaORr4RLU0JqlV5ozpaKAfnWI/5MvvRa8g1OdKfkhl+g0XxyZnMvokHzQS1XiA98mFEFWM3T73InvDhC0EmeKV3M2Q5iZaxBOKPCAFJaWR8tEbr2yAl/+lMfcsbT8MWfLniaRr0bHlOQFnQrbYSNrFI5mQpalMC85VY8atSDSiaxmVrhjadKCG5qJ8Sey9BpTEvjsA8UME6xs1B+8DRCIAe+y6332Q1fZZkBW5vS9DzjGkdU5SU/VDW3gpp95exAhQsWgqcq5fIftl/RmVbFW1N1EPkKNufp/oOeU2psZ6xdeNYxHsZzpGJPtwI+c5DvaqGVkwxJq50PdQaGs/bvvbE4h3Tf4pXVB9CV/78c38Mt9H6KBS+2nnoaV8BGqDDvcPWg8WZ+ouGwGKZOgah38dvAL7rrblBNvHJtLFJ1l9Lb2yqnvZTMw8x8N87GSksIcG26BEmFPa8xjX28wAeuU/aBeaX+rdTFa655Ag8hAW71UfRArdXxflkmV8clmHzlrOASWtOeeMc5xUrKar+6M2nCNk5nNO2E7Rxnf68W+foMk2E0GbHxcDphw6xPJ6PxIH2G8fYliibbEQm7xyX2ScW6MlqPB29Ntskl7lnzCektNC3DrjNNjwt+KVRn5FxmapNqALmqMtyNg8Yi+CrZnHEc0Aas5TLcN7kmRKh0Dyy5J0pCp/OT1TRpsySk5AdlPZKQOHwzEuLh+y6vNRw4HH3xJtmN3P4AUEsDBBQAAAgIAAAIIezy+3VLbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSqVmqhZGBhXGKiZGlRYpRmm6ihbGJYbJZqkmSuYGBRZKxUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeyPGHOQWQIAABIFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIezy+3VLbQAAAHgAAAAJACQAAAAAAAAAAAAAAKYCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAXgMAAAAA
+    dataString: UEsDBBQAAAgIAAAIIewm9PP/WwIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE2P2jAQ/SvI57IKge6G3lpg2R5Y0NJqL7mYeJJYOHZkO3yK/96xk5CUqifMe29m3ozHuRIuTQmJVXqpOVspBuTbgLgz+TLoyDc40UzJLb9Aq/nkzOZORL3mg1quEB+5MKMKsJon32UmnDhAsJI8VbpYsAxmyliDcEqFAaS0si5aInQdkBP+DKcu5Iyn8MWdLniaBoMbHhOQFnQnbYWtrFZVMhG0KIE5y5143KpHtUxiM43CGU+UENw0Tog9l77TbZmDBtcq4xQb89VHT2MEcuBZbp3NfvQ6TQ3YxpOm5znXOKE6Lfmh6rEV1OxrYwcqKu8gjLypOunqH3448nSqVfHW1h0FrobNebL/oOeEGtubax+e96z7+Ryp2NOdgM8c5LtaalVJhqTVlQutDITz7u+9tVkOyb7Da6sPYFX+/3ZcDzff/WkmeLFz1NOkBrZC+YH7uweNV/MTDfvNME0KRJ2L3wZ+0ay/Qg3xyrWxSDVdSmdvpyrtpGThZ+a6qexMaQkebkyXIKmw5w2msY9X+MD1yj4wr9Q9lqZ4w7Vv4CHEw50+CB6ojTreL8vk6rgCk68rK7iEzrQj3nFOMyVlvWH9mbRh20qnNOmFZRVnf68W+foMURhEYzYJpxEL0yGNxpNR8gyT3UsQRLsx8bvHJfZJxaY22owHb012ySXuWfsNGSw1Lf22M02PS34pVG/kXKZqm2gAua4z3I2DxiL4LNmCcRzQFqzl0t83ucZEqGQPLL4nin2ni5PVNO6yxKTkB2UdEpOZ/2jExMH3Xd5oOHA4uuJtshu5/QFQSwMEFAAACAgAAAgh7PL7dUttAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKpWaqFkYGFcYqJkaVFilGabqKFsYlhslmqSZK5gYFFkrFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7Cb08/9bAgAAEwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7PL7dUttAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1756,7 +1757,7 @@ MonoBehaviour:
   debugFloor: 0
   debugRoof: 1
   manualDebugFloorRoof: 0
-  showSearchTree: 0
+  showSearchTree: 1
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
@@ -1773,7 +1774,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -1793,8 +1826,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107646044}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.000000059604645, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

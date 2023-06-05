@@ -377,6 +377,9 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 10
   animator: {fileID: 140758906}
+  atk1: 0
+  atk2: 0
+  atk3: 0
 --- !u!95 &140758906
 Animator:
   serializedVersion: 5
@@ -460,6 +463,9 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 10
   animator: {fileID: 0}
+  atk1: 0
+  atk2: 0
+  atk3: 0
 --- !u!114 &180275481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +688,9 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 10
   animator: {fileID: 0}
+  atk1: 0
+  atk2: 0
+  atk3: 0
 --- !u!114 &689864526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1220,7 @@ GameObject:
   - component: {fileID: 1446035560}
   - component: {fileID: 1446035559}
   - component: {fileID: 1446035558}
+  - component: {fileID: 1446035561}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1284,6 +1294,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446035561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446035557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ec9314a9ecbe44696684661de520c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 140758899}
+  speedOfset: 3
+  posOffset: {x: 1, y: 1}
+  leftlimit: 2
+  rightlimit: 2
 --- !u!1 &1708477978
 GameObject:
   m_ObjectHideFlags: 0

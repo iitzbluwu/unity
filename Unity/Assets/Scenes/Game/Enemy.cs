@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public int maxHealth = 30;
     int currentHealth;
+    public Animator ratAnimator;
+
 
     public AIPath aiPath;
 
@@ -17,9 +19,15 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        //animator.SetFloat("Speed", Mathf.Abs(moveDirection));
+       // var velocity = rigidbody2d.velocity;
+       // float speed = velocity.magnitude;
+       // if (speed > 0)
+       // {
+           // ratAnimator.SetInteger("laufen", 1);//Hier muss der Animator Laufanimation spielen
+          //  Debug.Log("Laufen");
+       // }
 
-        if(aiPath.desiredVelocity.x >= 0.01f)
+        if (aiPath.desiredVelocity.x >= 0.01f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         } 
@@ -34,7 +42,8 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            Die();
+            ratAnimator.SetTrigger("isDED");
+            Invoke("Die", 3.0f);
         }
     }
     void Die()

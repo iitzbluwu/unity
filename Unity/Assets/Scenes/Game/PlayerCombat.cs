@@ -11,9 +11,6 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 10;
     public Animator animator;
-    public int atk1=0;
-    public int atk2=0;
-    public int atk3=0;
 
     // Update is called once per frame
     void Update()

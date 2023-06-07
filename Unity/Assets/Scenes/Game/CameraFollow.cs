@@ -19,6 +19,12 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     float rightlimit;
 
+    [SerializeField]
+    float toplimit;
+
+    [SerializeField]
+    float botlimit;
+
 
     void Start()
     {
@@ -36,10 +42,11 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = Vector3.Lerp(startPos, endPos, speedOfset*Time.deltaTime);
 
-        /*transform.position = new Vector3
+        transform.position = new Vector3
             (
                 Mathf.Clamp(transform.position.x, leftlimit, rightlimit),
+                Mathf.Clamp(transform.position.y, toplimit, botlimit),
                 transform.position.z
-            );*/
+            );
     }
 }

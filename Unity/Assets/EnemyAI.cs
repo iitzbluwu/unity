@@ -20,6 +20,8 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Update EnemyAI");
+
         if (player != null)
         {
             Vector2 direction = player.transform.position - transform.position;

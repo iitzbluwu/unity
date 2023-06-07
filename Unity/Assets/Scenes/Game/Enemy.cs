@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 30;
     int currentHealth;
     public Animator ratAnimator;
+    public EnemyAI enemyAI;
 
 
     //public AIPath aiPath;
@@ -15,7 +16,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;    
+        currentHealth = maxHealth;
+        enemyAI = GetComponent<EnemyAI>();
     }
     void Update()
     {
@@ -42,8 +44,9 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
-            Invoke("Die", 3.0f);
+            Invoke("Die", 2.0f);
         }
     }
     void Die()

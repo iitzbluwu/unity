@@ -10,12 +10,15 @@ public class Enemy : MonoBehaviour
     public Animator ratAnimator;
     public EnemyAI enemyAI;
 
+    private Rigidbody2D rb2d;
 
     //public AIPath aiPath;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
+
         currentHealth = maxHealth;
         enemyAI = GetComponent<EnemyAI>();
     }
@@ -44,6 +47,8 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            GetComponent<Collider2D>().enabled = false;
+            rb2d.isKinematic = true;
             enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
             Invoke("Die", 2.0f);

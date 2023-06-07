@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e7f20494cb53b4ab22779f0de52408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ratPrefab: {fileID: 4279154769447256071, guid: 1623d74d6db83b842aaa79c2ea69edba, type: 3}
+  ratPrefab: {fileID: 1364418707}
   ratInterval: 10
 --- !u!4 &116776912
 Transform:
@@ -1246,6 +1246,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1364418707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4279154769447256071, guid: 1623d74d6db83b842aaa79c2ea69edba, type: 3}
+  m_PrefabInstance: {fileID: 4279154768947432989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446035557
 GameObject:
   m_ObjectHideFlags: 0

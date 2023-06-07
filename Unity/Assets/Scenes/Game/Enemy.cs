@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public Animator ratAnimator;
 
 
-    public AIPath aiPath;
+    //public AIPath aiPath;
 
     // Start is called before the first frame update
     void Start()
@@ -27,14 +27,14 @@ public class Enemy : MonoBehaviour
           //  Debug.Log("Laufen");
        // }
 
-        if (aiPath.desiredVelocity.x >= 0.01f)
+        /*if (aiPath.desiredVelocity.x >= 0.01f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         } 
         else if (aiPath.desiredVelocity.x <= -0.01f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        }*/
     }
     public void TakeDamage(int damage)
     {

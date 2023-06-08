@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool canAttack = true;
     public float attackDelay = 2f;
+    public int damageAmount = 10;
 
     void Start()
     {
@@ -45,7 +45,11 @@ public class Enemy : MonoBehaviour
             {
                 canAttack = false;
                 Invoke("AttackDelay", attackDelay);
-                // Füge hier den Code hinzu, um dem Spieler Schaden zuzufügen
+                Player player = FindObjectOfType<Player>();
+                if (player != null)
+                {
+                    player.TakeDamage(damageAmount);
+                }
             }
         }
     }
@@ -62,5 +66,25 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                Invoke("DealDamageToPlayer", 1.0f);
+            }
+        }
+    }
+    void DealDamageToPlayer()
+    {
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (player != null)
+        {
+            player.TakeDamage(damageAmount);
+        }
     }
 }

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         if (!isInvincible)
         {
             currentHealth -= damage;
+            Debug.Log("Player Health: " + currentHealth);
 
             if (currentHealth <= 0)
             {
@@ -35,16 +36,14 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player Ded!");
 
-        // Hier kannst du die Logik hinzufügen, die ausgeführt werden soll, wenn der Spieler stirbt
-
-        // Beispiel: Restart des Levels oder Game Over anzeigen
+        //Game Over anzeigen
     }
 
     IEnumerator InvincibilityCoroutine()
     {
         isInvincible = true;
 
-        // Füge hier den Code hinzu, um die visuelle Darstellung des Spielers während der Unverwundbarkeit zu ändern (z.B. Farbänderung)
+        //visuelle Darstellung des Spielers während der Unverwundbarkeit zu ändern (z.B. Farbänderung)
 
         yield return new WaitForSeconds(invincibilityDuration);
 

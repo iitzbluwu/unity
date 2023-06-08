@@ -24,6 +24,13 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+       // var velocity = rigidbody2d.velocity;
+       // float speed = velocity.magnitude;
+       // if (speed > 0)
+       // {
+           // ratAnimator.SetInteger("laufen", 1);//Hier muss der Animator Laufanimation spielen
+          //  Debug.Log("Laufen");
+       // }
 
         /*if (aiPath.desiredVelocity.x >= 0.01f)
         {

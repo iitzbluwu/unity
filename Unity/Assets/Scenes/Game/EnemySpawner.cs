@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject ratPrefab;
+    public GameObject enemyPrefab;
+    public float spawnInterval = 5f;
+    public float spawnY = 0f;
 
-    [SerializeField]
-    private float ratInterval = 3.5f;
-
-    int zahl1 = 15;
-    int zahl2 = -15;
-
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnEnemy(ratInterval, ratPrefab));
+        InvokeRepeating("SpawnEnemy", 2f, spawnInterval);
     }
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
-    {   
-        int rndZahl = Random.Range(0, 2) == 0 ? zahl1: zahl2;
+    private void SpawnEnemy()
+    {
+        float spawnX = Random.Range(0, 2) == 0 ? -15f : 15f; // Zufällige Auswahl zwischen -15f und 15f für X-Position
+        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
-        yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(rndZahl, 0, 0), Quaternion.identity);
-        StartCoroutine(spawnEnemy(interval, enemy));
+        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }

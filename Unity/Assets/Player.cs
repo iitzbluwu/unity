@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Ded!");
-
+        gameObject.SetActive(false);
         //Game Over anzeigen
     }
 

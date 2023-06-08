@@ -45,11 +45,6 @@ public class Enemy : MonoBehaviour
             {
                 canAttack = false;
                 Invoke("AttackDelay", attackDelay);
-                Player player = FindObjectOfType<Player>();
-                if (player != null)
-                {
-                    player.TakeDamage(damageAmount);
-                }
             }
         }
     }
@@ -75,16 +70,9 @@ public class Enemy : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {
-                Invoke("DealDamageToPlayer", 1.0f);
+                player.TakeDamage(damageAmount);
+                AttackDelay(); // Setze den Timer für das erneute Angreifen
             }
-        }
-    }
-    void DealDamageToPlayer()
-    {
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (player != null)
-        {
-            player.TakeDamage(damageAmount);
         }
     }
 }

@@ -46,6 +46,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+
     public void deadge()
     {
         isAlive = false;

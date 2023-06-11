@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
     private bool canAttack = true;
     public float attackDelay = 2f;
     public int damageAmount = 10;
+    public float attackRange = 2f; // Angriffsreichweite des Gegners
+
+    private Transform player; // Referenz auf den Spieler
+    private bool isAlive = true; // Variable, um den Lebensstatus des Gegners zu verfolgen
 
     void Start()
     {
@@ -20,11 +24,16 @@ public class Enemy : MonoBehaviour
 
         currentHealth = maxHealth;
         enemyAI = GetComponent<EnemyAI>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Spielerreferenz finden
     }
 
     void Update()
     {
-        if (canAttack)
+        if (!isAlive) return; // Wenn der Gegner tot ist, breche die Update-Methode ab
+
+        // Angriffsreichweite
+        if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             canAttack = false;
             Invoke("AttackDelay", attackDelay);
@@ -38,6 +47,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            isAlive = false; // Setze den Lebensstatus des Gegners auf tot
             GetComponent<Collider2D>().enabled = false;
             rb2d.isKinematic = true;
             enemyAI.deadge();
@@ -65,7 +75,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null)
+            if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
             {
                 Invoke("DealDamageToPlayer", 1.0f);
             }
@@ -75,7 +85,7 @@ public class Enemy : MonoBehaviour
     void DealDamageToPlayer()
     {
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (player != null)
+        if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
         {
             player.TakeDamage(damageAmount);
         }

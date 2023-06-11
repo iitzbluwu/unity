@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public EnemyAI enemyAI;
 
     private Rigidbody2D rb2d;
-    private bool canAttack = true;
+    private bool canAttack = false;
     public float attackDelay = 2f;
     public int damageAmount = 10;
     public float attackRange = 2f; // Angriffsreichweite des Gegners
@@ -29,17 +29,27 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Überprüfe, ob der Spieler in Angriffsreichweite ist
-        if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
+        // Angriffsreichweite
+        if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
-            canAttack = false;
-            Invoke("AttackDelay", attackDelay);
-            DealDamageToPlayer();
+            if (canAttack)
+            {
+                canAttack = false;
+                DealDamageToPlayer();
+                Invoke("EnableAttack", attackDelay); // Verzögerung vor dem nächsten Angriff
+            }
+        }
+        else
+        {
+            canAttack = true; // Spieler außerhalb der Reichweite, Angriff erlauben
         }
     }
 
     public void TakeDamage(int damage)
     {
+        if (currentHealth <= 0)
+            return; // Wenn der Gegner bereits tot ist, nichts tun
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -52,7 +62,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void AttackDelay()
+    void EnableAttack()
     {
         canAttack = true;
     }
@@ -73,7 +83,7 @@ public class Enemy : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {
-                Invoke("DealDamageToPlayer", 1.0f);
+                DealDamageToPlayer();
             }
         }
     }
@@ -81,7 +91,7 @@ public class Enemy : MonoBehaviour
     void DealDamageToPlayer()
     {
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (player != null)
+        if (player != null && currentHealth > 0)
         {
             player.TakeDamage(damageAmount);
         }

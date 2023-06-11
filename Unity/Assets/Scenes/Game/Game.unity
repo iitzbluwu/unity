@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 140758905}
   - component: {fileID: 140758906}
   - component: {fileID: 140758907}
+  - component: {fileID: 140758908}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -387,7 +388,7 @@ Animator:
   m_GameObject: {fileID: 140758899}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6e440c2fa5e6d04aa55e6392599c16f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 85a567acfea451a44bd3de69b418f291, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -410,7 +411,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bb7dd63cadc3d43a455556e000447e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   myAnim: {fileID: 140758906}
+=======
+  maxHealth: 100
+  invincibilityDuration: 1
+--- !u!114 &140758908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140758899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58bb7dd63cadc3d43a455556e000447e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnim: {fileID: 0}
+>>>>>>> Stashed changes
   isAttacking: 0
 --- !u!1 &180275478
 GameObject:

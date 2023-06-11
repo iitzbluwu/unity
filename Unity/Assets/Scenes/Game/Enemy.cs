@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     private bool canAttack = true;
     public float attackDelay = 2f;
     public int damageAmount = 10;
+    public float attackRange = 2f; // Angriffsreichweite des Gegners
+
+    private Transform player; // Referenz auf den Spieler
 
     void Start()
     {
@@ -20,11 +23,14 @@ public class Enemy : MonoBehaviour
 
         currentHealth = maxHealth;
         enemyAI = GetComponent<EnemyAI>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Spielerreferenz finden
     }
 
     void Update()
     {
-        if (canAttack)
+        // Überprüfe, ob der Spieler in Angriffsreichweite ist
+        if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             canAttack = false;
             Invoke("AttackDelay", attackDelay);

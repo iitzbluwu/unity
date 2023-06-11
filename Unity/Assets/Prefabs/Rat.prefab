@@ -131,7 +131,7 @@ MonoBehaviour:
   ratAnimator: {fileID: 3809565354473322832}
   enemyAI: {fileID: 0}
   attackDelay: 4
-  damageAmount: 25
+  damageAmount: 10
   attackRange: 2
 --- !u!50 &3809565354473322833
 Rigidbody2D:

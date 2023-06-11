@@ -24,7 +24,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        
+        if (canAttack)
+        {
+            canAttack = false;
+            Invoke("AttackDelay", attackDelay);
+            DealDamageToPlayer();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -38,14 +43,6 @@ public class Enemy : MonoBehaviour
             enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
             Invoke("Die", 2.0f);
-        }
-        else
-        {
-            if (canAttack)
-            {
-                canAttack = false;
-                Invoke("AttackDelay", attackDelay);
-            }
         }
     }
 
@@ -70,9 +67,17 @@ public class Enemy : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {
-                player.TakeDamage(damageAmount);
-                AttackDelay(); // Setze den Timer für das erneute Angreifen
+                Invoke("DealDamageToPlayer", 1.0f);
             }
+        }
+    }
+
+    void DealDamageToPlayer()
+    {
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (player != null)
+        {
+            player.TakeDamage(damageAmount);
         }
     }
 }

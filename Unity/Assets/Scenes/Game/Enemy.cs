@@ -10,12 +10,13 @@ public class Enemy : MonoBehaviour
     public EnemyAI enemyAI;
 
     private Rigidbody2D rb2d;
-    private bool canAttack = false;
+    private bool canAttack = true;
     public float attackDelay = 2f;
     public int damageAmount = 10;
     public float attackRange = 2f; // Angriffsreichweite des Gegners
 
     private Transform player; // Referenz auf den Spieler
+    private bool isAlive = true; // Variable, um den Lebensstatus des Gegners zu verfolgen
 
     void Start()
     {
@@ -29,31 +30,24 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) return; // Wenn der Gegner tot ist, breche die Update-Methode ab
+
         // Angriffsreichweite
-        if (Vector2.Distance(transform.position, player.position) <= attackRange)
+        if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
-            if (canAttack)
-            {
-                canAttack = false;
-                DealDamageToPlayer();
-                Invoke("EnableAttack", attackDelay); // Verzögerung vor dem nächsten Angriff
-            }
-        }
-        else
-        {
-            canAttack = true; // Spieler außerhalb der Reichweite, Angriff erlauben
+            canAttack = false;
+            Invoke("AttackDelay", attackDelay);
+            DealDamageToPlayer();
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth <= 0)
-            return; // Wenn der Gegner bereits tot ist, nichts tun
-
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
+            isAlive = false; // Setze den Lebensstatus des Gegners auf tot
             GetComponent<Collider2D>().enabled = false;
             rb2d.isKinematic = true;
             enemyAI.deadge();
@@ -62,7 +56,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void EnableAttack()
+    void AttackDelay()
     {
         canAttack = true;
     }
@@ -81,9 +75,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null)
+            if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
             {
-                DealDamageToPlayer();
+                Invoke("DealDamageToPlayer", 1.0f);
             }
         }
     }
@@ -91,7 +85,7 @@ public class Enemy : MonoBehaviour
     void DealDamageToPlayer()
     {
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (player != null && currentHealth > 0)
+        if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
         {
             player.TakeDamage(damageAmount);
         }

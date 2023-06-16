@@ -9,25 +9,39 @@ public class EnemySpawner : MonoBehaviour
     private int consecutiveSpawns = 0; // Anzahl der aufeinanderfolgenden Spawns auf derselben Seite
     private bool spawnOnLeft = true; // Starte mit Spawn auf der linken Seite
 
+    public int counter;
+
     private void Start()
     {
         InvokeRepeating("SpawnEnemy", 2f, spawnInterval);
     }
 
-    private void SpawnEnemy()
+private void SpawnEnemy()
+{
+    float spawnX = spawnOnLeft ? -15f : 15f;
+    Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
+
+    // Instantiate the enemy prefab with the appropriate spawn position and rotation
+    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+    // Flip the enemy's direction if it spawns on the left side
+    if (spawnOnLeft)
     {
-        float spawnX = spawnOnLeft ? -15f : 15f;
-        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
+        // Get the sprite renderer component of the enemy
+        SpriteRenderer enemyRenderer = enemy.GetComponent<SpriteRenderer>();
 
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
-        consecutiveSpawns++;
-        
-        // Überprüfe, ob die maximale Anzahl auf derselben Seite erreicht wurde
-        if (consecutiveSpawns >= 2)
-        {
-            spawnOnLeft = !spawnOnLeft; // Wechsle die Seite
-            consecutiveSpawns = 0; // Setze den Counter zurück
-        }
+        // Flip the enemy's sprite horizontally
+        enemyRenderer.flipX = true;
     }
+
+    consecutiveSpawns++;
+
+    // Check if the maximum number of consecutive spawns on the same side has been reached
+    if (consecutiveSpawns >= 2)
+    {
+        spawnOnLeft = !spawnOnLeft; // Switch sides
+        consecutiveSpawns = 0; // Reset the counter
+    }
+}
+
 }

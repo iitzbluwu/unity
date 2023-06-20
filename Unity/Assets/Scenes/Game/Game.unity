@@ -1809,8 +1809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e7f20494cb53b4ab22779f0de52408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab1: {fileID: 3809565354473322842, guid: 1560d07dfb69a034fab8aca8c875f24c, type: 3}
-  enemyPrefab2: {fileID: 8709065243373048196, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
+  enemyPrefab: {fileID: 3809565354473322842, guid: 1560d07dfb69a034fab8aca8c875f24c, type: 3}
+  specialEnemyPrefab: {fileID: 8709065243373048196, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
   spawnInterval: 5
   spawnY: -1
   counter: 0

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 30;
     int currentHealth;
     public Animator ratAnimator;
+    public Animator legionaerAnimator;
     public EnemyAI enemyAI;
 
     private Rigidbody2D rb2d;
@@ -52,6 +53,7 @@ public class Enemy : MonoBehaviour
             rb2d.isKinematic = true;
             enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
+            //legionaerAnimator.SetTrigger("isDED");
             Invoke("Die", 2.0f);
         }
     }

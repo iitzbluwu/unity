@@ -7,7 +7,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     public float speed = 5f;
     public float approachDistance = 2f;
-    public Animator ani;
+    public Animator aniRat;
+    //public Animator aniLegionaer;
     public bool isAlive = true;
 
     private Rigidbody2D rb;
@@ -34,13 +35,15 @@ public class EnemyAI : MonoBehaviour
 
                 if (direction.magnitude > approachDistance)
                 {
-                    ani.SetBool("laufen", true);
+                    aniRat.SetBool("laufen", true);
+                    //aniLegionaer.SetBool("laufen", true);
                     direction.Normalize();
                     rb.velocity = direction * speed;
                 }
                 else
                 {
-                    ani.SetBool("laufen", false);
+                    aniRat.SetBool("laufen", false);
+                    //aniLegionaer.SetBool("laufen", false);
                     rb.velocity = Vector2.zero;
                 }
             }

@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 30;
     int currentHealth;
     public Animator ratAnimator;
-    public Animator legionaerAnimator;
     public EnemyAI enemyAI;
 
     private Rigidbody2D rb2d;

@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   ratAnimator: {fileID: 3809565354473322832}
+  legionaerAnimator: {fileID: 0}
   enemyAI: {fileID: 0}
   attackDelay: 4
   damageAmount: 1
@@ -148,7 +149,8 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 1
   approachDistance: 2
-  ani: {fileID: 3809565354473322832}
+  aniRat: {fileID: 3809565354473322832}
+  aniLegionaer: {fileID: 0}
   isAlive: 1
 --- !u!95 &3809565354473322832
 Animator:

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  ratAnimator: {fileID: 0}
+  ratAnimator: {fileID: 256532845984349896}
   enemyAI: {fileID: 0}
   attackDelay: 5
   damageAmount: 2
@@ -148,7 +148,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 0.75
   approachDistance: 2
-  ani: {fileID: 256532845984349896}
+  aniRat: {fileID: 256532845984349896}
   isAlive: 1
 --- !u!95 &256532845984349896
 Animator:
@@ -160,7 +160,7 @@ Animator:
   m_GameObject: {fileID: 8709065243373048196}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fcd94b1912cd7de45a6b51e44f9bad0e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8b104682f7624a147a6c2705e0c31e5c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

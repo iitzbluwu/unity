@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9022756153429708950}
   - component: {fileID: -4455224045230090155}
   m_Layer: 6
-  m_Name: Square
+  m_Name: Legionaer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 1
+  speed: 0.75
   approachDistance: 2
   ani: {fileID: 256532845984349896}
   isAlive: 1

@@ -19,14 +19,18 @@ public class Enemy : MonoBehaviour
     private bool isAlive = true; // Variable, um den Lebensstatus des Gegners zu verfolgen
 
     void Start()
+{
+    rb2d = GetComponent<Rigidbody2D>();
+
+    currentHealth = maxHealth;
+    enemyAI = GetComponent<EnemyAI>();
+    if (enemyAI == null)
     {
-        rb2d = GetComponent<Rigidbody2D>();
-
-        currentHealth = maxHealth;
-        enemyAI = GetComponent<EnemyAI>();
-
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Spielerreferenz finden
+        Debug.LogError("EnemyAI component is missing!");
     }
+
+    player = GameObject.FindGameObjectWithTag("Player").transform; // Find player reference
+}
 
     void Update()
     {

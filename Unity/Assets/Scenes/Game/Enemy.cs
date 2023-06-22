@@ -19,18 +19,14 @@ public class Enemy : MonoBehaviour
     private bool isAlive = true; // Variable, um den Lebensstatus des Gegners zu verfolgen
 
     void Start()
-{
-    rb2d = GetComponent<Rigidbody2D>();
-
-    currentHealth = maxHealth;
-    enemyAI = GetComponent<EnemyAI>();
-    if (enemyAI == null)
     {
-        Debug.LogError("EnemyAI component is missing!");
-    }
+        rb2d = GetComponent<Rigidbody2D>();
 
-    player = GameObject.FindGameObjectWithTag("Player").transform; // Find player reference
-}
+        currentHealth = maxHealth;
+        enemyAI = GetComponent<EnemyAI>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Spielerreferenz finden
+    }
 
     void Update()
     {
@@ -65,14 +61,17 @@ public class Enemy : MonoBehaviour
         canAttack = true;
     }
 
-    void Die()
-    {
-        Debug.Log("Enemy Ded!");
+void Die()
+{
+    Debug.Log("Enemy Ded!");
 
-        GetComponent<Collider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
-        this.enabled = false;
-    }
+    GetComponent<Collider2D>().enabled = false;
+    GetComponent<SpriteRenderer>().enabled = false;
+    this.enabled = false;
+    Destroy(gameObject); // Destroy the enemy object
+}
+
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {

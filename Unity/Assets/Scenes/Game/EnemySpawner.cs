@@ -66,5 +66,11 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnOnLeft = !spawnOnLeft; // Switch sides for legionaer
         }
+        else
+        {
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            enemyComponent.ratAnimator = enemy.GetComponent<Animator>();
+            enemyComponent.enemyAI = enemy.GetComponent<EnemyAI>();
+        }
     }
 }

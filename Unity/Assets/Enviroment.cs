@@ -14,7 +14,7 @@ public class Enviroment : MonoBehaviour
     {
         vorhang.Play("Vorhang");
         // Setze die Startposition des Bildes oberhalb des Kamera-Blickfelds
-        transform.position = new Vector3(targetPosition.x, targetPosition.y + 8f, targetPosition.z);
+        transform.position = new Vector3(targetPosition.x, targetPosition.y + 7f, targetPosition.z);
 
         // Starte die Bewegung des Bildes
         StartCoroutine(MoveImage());

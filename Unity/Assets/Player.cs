@@ -5,7 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
-    int currentHealth;
+    private int currentHealth;
+
+    public int CurrentHealth
+    {
+        get { return currentHealth; }
+    }
+    
     public float invincibilityDuration = 1f;
     private bool isInvincible = false;
     public GameObject Screen;

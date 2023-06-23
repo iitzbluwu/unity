@@ -7,13 +7,18 @@ public class Enviroment : MonoBehaviour
     public float speed = 1f; // Geschwindigkeit der Bewegung
     public Vector3 targetPosition; // Zielposition des Bildes
 
+    public Animator vorhang;
+    public GameObject vorhangObject;
+
     private void Start()
     {
+        vorhang.Play("Vorhang");
         // Setze die Startposition des Bildes oberhalb des Kamera-Blickfelds
         transform.position = new Vector3(targetPosition.x, targetPosition.y + 8f, targetPosition.z);
 
         // Starte die Bewegung des Bildes
         StartCoroutine(MoveImage());
+        Invoke("VorhangAus", 2f);
     }
 
     private IEnumerator MoveImage()
@@ -31,5 +36,9 @@ public class Enviroment : MonoBehaviour
 
             yield return null;
         }
+    }
+    void VorhangAus()
+    {
+        vorhangObject.SetActive(false);
     }
 }

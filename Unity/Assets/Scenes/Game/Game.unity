@@ -318,7 +318,6 @@ GameObject:
   m_Component:
   - component: {fileID: 121699772}
   - component: {fileID: 121699774}
-  - component: {fileID: 121699773}
   m_Layer: 0
   m_Name: Health_1
   m_TagString: Untagged
@@ -341,22 +340,6 @@ Transform:
   m_Father: {fileID: 1446035560}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &121699773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121699771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0d3b4dd06bc0443af302be50daed8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  spriteFolderPath: Assets/Assets/Sprites_Health/Sprites_Health/Secutor_Health
-  spriteNamePrefix: Secutor_Healthbar_
-  maxSprites: 6
 --- !u!212 &121699774
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -832,6 +815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 246371433}
   - component: {fileID: 246371434}
+  - component: {fileID: 246371435}
   m_Layer: 0
   m_Name: Health_5
   m_TagString: Untagged
@@ -906,6 +890,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &246371435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246371432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0d3b4dd06bc0443af302be50daed8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health0: {fileID: 1791611518}
+  health1: {fileID: 121699774}
+  health2: {fileID: 1449662315}
+  health3: {fileID: 1785196678}
+  health4: {fileID: 1310295432}
+  health5: {fileID: 246371434}
 --- !u!1 &246859560
 GameObject:
   m_ObjectHideFlags: 0

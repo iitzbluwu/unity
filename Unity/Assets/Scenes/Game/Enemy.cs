@@ -29,17 +29,16 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
-    {
-        if (!isAlive) return; // Wenn der Gegner tot ist, breche die Update-Methode ab
+{
+    if (!isAlive) return;
 
-        // Angriffsreichweite
-        if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
-        {
-            canAttack = false;
-            Invoke("AttackDelay", attackDelay);
-            DealDamageToPlayer();
-        }
+    // Angriffsreichweite
+    if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
+    {
+        canAttack = false;
+        Invoke("DealDamageToPlayer", attackDelay);
     }
+}
 
     public void TakeDamage(int damage)
     {
@@ -88,10 +87,14 @@ void Die()
 
     void DealDamageToPlayer()
     {
+        if (!isAlive) return;
+
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
+        if (player != null)
         {
             player.TakeDamage(damageAmount);
         }
+
+        Invoke("AttackDelay", attackDelay);
     }
 }

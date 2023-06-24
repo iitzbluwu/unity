@@ -130,7 +130,7 @@ MonoBehaviour:
   maxHealth: 2
   ratAnimator: {fileID: 256532845984349896}
   enemyAI: {fileID: 0}
-  attackDelay: 5
+  attackDelay: 3
   damageAmount: 2
   attackRange: 2
 --- !u!114 &1293591197514185623

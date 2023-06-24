@@ -23,7 +23,8 @@ public class Health : MonoBehaviour
         health4.enabled = false;
         health5.enabled = false;
 
-        Invoke("EnableHealthUpdate", 2f);
+        // Invoke("EnableHealthUpdate", 2f);
+        EnableHealthUpdate(); // Uncomment this line to enable immediate health update
     }
 
     void Update()
@@ -36,14 +37,14 @@ public class Health : MonoBehaviour
 
     void UpdateHealthSprites()
     {
-        if (Player.currentHealth == 0)
+        if (Player.currentHealth == 5)
         {
             health0.enabled = true;
-            health1.enabled = false;
-            health2.enabled = false;
-            health3.enabled = false;
-            health4.enabled = false;
-            health5.enabled = false;
+            health1.enabled = true;
+            health2.enabled = true;
+            health3.enabled = true;
+            health4.enabled = true;
+            health5.enabled = true;
         }
         else if (Player.currentHealth == 1)
         {
@@ -81,14 +82,14 @@ public class Health : MonoBehaviour
             health4.enabled = true;
             health5.enabled = false;
         }
-        else if (Player.currentHealth == 5)
+        else
         {
             health0.enabled = true;
-            health1.enabled = true;
-            health2.enabled = true;
-            health3.enabled = true;
-            health4.enabled = true;
-            health5.enabled = true;
+            health1.enabled = false;
+            health2.enabled = false;
+            health3.enabled = false;
+            health4.enabled = false;
+            health5.enabled = false;
         }
     }
 

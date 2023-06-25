@@ -18,6 +18,10 @@ public class Menu : MonoBehaviour
     public GameObject C9;
 
     public GameObject secutor;
+    public GameObject senator;
+    public GameObject P2;
+    public GameObject P2C1;
+    public GameObject P2C2;
 
 
     public GameObject CurrentAvatar;
@@ -39,7 +43,7 @@ public class Menu : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter > 0 && IndexCounter < 10)
+        if (Input.GetKeyDown(KeyCode.D) && IndexCounter > 0 && IndexCounter < 10)
         {
             IndexCounter += 1;
             CheckIndexBoundaries();
@@ -48,7 +52,7 @@ public class Menu : MonoBehaviour
             NextAvatar.SetActive(true);
             //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && IndexCounter > 0 && IndexCounter < 10)
+        if (Input.GetKeyDown(KeyCode.A) && IndexCounter > 0 && IndexCounter < 10)
         {
             IndexCounter -= 1;
             CheckIndexBoundaries();
@@ -58,7 +62,7 @@ public class Menu : MonoBehaviour
             //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && IndexCounter > 0 && IndexCounter < 10)
+        if (Input.GetKeyDown(KeyCode.S) && IndexCounter > 0 && IndexCounter < 10)
         {
             IndexCounter += 3;
             CheckIndexBoundaries();
@@ -67,7 +71,7 @@ public class Menu : MonoBehaviour
             NextAvatar.SetActive(true);
             //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IndexCounter > 0 && IndexCounter < 10)
+        if (Input.GetKeyDown(KeyCode.W) && IndexCounter > 0 && IndexCounter < 10)
         {
             IndexCounter -= 3;
             CheckIndexBoundaries();
@@ -75,6 +79,49 @@ public class Menu : MonoBehaviour
             CurrentAvatar.SetActive(false);
             NextAvatar.SetActive(true);
             //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            P2.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter > 0 && IndexCounter < 10)
+            {
+                IndexCounter += 1;
+                CheckIndexBoundaries();
+                NextAvatar = FindAvatar(IndexCounter);
+                CurrentAvatar.SetActive(false);
+                NextAvatar.SetActive(true);
+                //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && IndexCounter > 0 && IndexCounter < 10)
+            {
+                IndexCounter -= 1;
+                CheckIndexBoundaries();
+                NextAvatar = FindAvatar(IndexCounter);
+                CurrentAvatar.SetActive(false);
+                NextAvatar.SetActive(true);
+                //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow) && IndexCounter > 0 && IndexCounter < 10)
+            {
+                IndexCounter += 3;
+                CheckIndexBoundaries();
+                NextAvatar = FindAvatar(IndexCounter);
+                CurrentAvatar.SetActive(false);
+                NextAvatar.SetActive(true);
+                //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow) && IndexCounter > 0 && IndexCounter < 10)
+            {
+                IndexCounter -= 3;
+                CheckIndexBoundaries();
+                NextAvatar = FindAvatar(IndexCounter);
+                CurrentAvatar.SetActive(false);
+                NextAvatar.SetActive(true);
+                //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
+            }
         }
 
         if (C1.activeSelf || C2.activeSelf)
@@ -94,6 +141,46 @@ public class Menu : MonoBehaviour
         else
         {
             secutor.SetActive(true);
+        }
+        if (CurrentAvatar == C2)
+        {
+            senator.SetActive(true);
+        }
+        else 
+        {
+            senator.SetActive(false); 
+        }
+
+
+        if (CurrentAvatar != C1)
+        {
+            if (P2.activeSelf)
+            {
+                P2C1.SetActive(false);
+            }
+        }
+        else
+        {
+            if (P2.activeSelf)
+            {
+                P2C1.SetActive(true);
+            }
+        }
+
+
+        if (CurrentAvatar == C2)
+        {
+            if (P2.activeSelf)
+            {
+                P2C2.SetActive(true);
+            }
+        }
+        else
+        {
+            if (P2.activeSelf)
+            {
+                P2C2.SetActive(false);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

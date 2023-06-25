@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        ratAnimator.SetTrigger("Hurt");
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
             rb2d.isKinematic = true;
             enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
+            ratAnimator.SetBool("Dead",true);
             //legionaerAnimator.SetTrigger("isDED");
             Invoke("Die", 2.0f);
         }
@@ -92,6 +94,7 @@ void Die()
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (player != null)
         {
+            ratAnimator.SetTrigger("Attack");
             player.TakeDamage(damageAmount);
         }
 

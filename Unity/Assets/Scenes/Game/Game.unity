@@ -3964,7 +3964,13 @@ MonoBehaviour:
   legionaerPrefab: {fileID: 8709065243373048196, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
   spawnInterval: 5
   spawnY: -1
-  ratCount: 0
+  spawnIntervals:
+  - duration: 50
+    ratSpawnProbability: 1
+    legionaerSpawnProbability: 0
+  - duration: 50
+    ratSpawnProbability: 0
+    legionaerSpawnProbability: 1
 --- !u!4 &1464604014
 Transform:
   m_ObjectHideFlags: 0

@@ -12,47 +12,40 @@ public class Movement : MonoBehaviour
     private bool isMirrored = false;
     private float moveDirection;
 
-    private void Awake(){
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
     }
+
     // Update is called once per frame
-    void Update() //Schlecht / passt sich an fps an
+    void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(moveDirection));
 
         //raw for instant movement
         moveDirection = Input.GetAxisRaw("Horizontal");
 
-        /*if (moveDirection > 0 && !facingRight)
-        {
-            FlipCharacter();
-        }
-        else if (moveDirection < 0 && facingRight)
-        {
-            FlipCharacter();
-        }*/
-
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMirrored)
-        {
-            Transform objectTransform = transform;
-            objectTransform.localScale = new Vector3(-objectTransform.localScale.x, objectTransform.localScale.y, objectTransform.localScale.z);
-            isMirrored = true;
-            Debug.Log("is Mirrored");
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && isMirrored)
-        {
-            Transform objectTransform = transform;
-            objectTransform.localScale = new Vector3(-objectTransform.localScale.x, objectTransform.localScale.y, objectTransform.localScale.z);
-            isMirrored = false;
-            Debug.Log("is not Mirrored");
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (!isMirrored)
+            {
+                FlipCharacter();
+            }
         }
-
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (isMirrored)
+            {
+                FlipCharacter();
+            }
+        }
     }
-    /*private void FlipCharacter()
+
+    private void FlipCharacter()
     {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 100f, 0f);
-    }*/
+        isMirrored = !isMirrored;
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+    }
 }

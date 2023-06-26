@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 
 
-public class Menu : MonoBehaviour
+public class Menu1 : MonoBehaviour
 {
     public GameObject C1;
     public GameObject C2;
@@ -20,8 +20,7 @@ public class Menu : MonoBehaviour
     public GameObject secutor;
     public GameObject senator;
     public GameObject P2;
-    public GameObject P2C1;
-    public GameObject P2C2;
+
 
 
     public GameObject CurrentAvatar;
@@ -41,51 +40,10 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (P2.activeSelf)
+        {
 
-
-        if (Input.GetKeyDown(KeyCode.D) && IndexCounter > 0 && IndexCounter < 10)
-        {
-            IndexCounter += 1;
-            CheckIndexBoundaries();
-            NextAvatar = FindAvatar(IndexCounter);
-            CurrentAvatar.SetActive(false);
-            NextAvatar.SetActive(true);
-            //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
-        }
-        if (Input.GetKeyDown(KeyCode.A) && IndexCounter > 0 && IndexCounter < 10)
-        {
-            IndexCounter -= 1;
-            CheckIndexBoundaries();
-            NextAvatar = FindAvatar(IndexCounter);
-            CurrentAvatar.SetActive(false);
-            NextAvatar.SetActive(true);
-            //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S) && IndexCounter > 0 && IndexCounter < 10)
-        {
-            IndexCounter += 3;
-            CheckIndexBoundaries();
-            NextAvatar = FindAvatar(IndexCounter);
-            CurrentAvatar.SetActive(false);
-            NextAvatar.SetActive(true);
-            //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
-        }
-        if (Input.GetKeyDown(KeyCode.W) && IndexCounter > 0 && IndexCounter < 10)
-        {
-            IndexCounter -= 3;
-            CheckIndexBoundaries();
-            NextAvatar = FindAvatar(IndexCounter);
-            CurrentAvatar.SetActive(false);
-            NextAvatar.SetActive(true);
-            //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            P2.SetActive(true);
-        }
-           /* if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter > 0 && IndexCounter < 10)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter > 0 && IndexCounter < 10)
             {
                 IndexCounter += 1;
                 CheckIndexBoundaries();
@@ -122,74 +80,75 @@ public class Menu : MonoBehaviour
                 NextAvatar.SetActive(true);
                 //Debug.Log("Left key was pressed. IndexCounter: " +IndexCounter);
             }
-        }*/
 
-        if (C1.activeSelf || C2.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
+
+            if (C1.activeSelf || C2.activeSelf)
             {
-                Debug.Log("Return key was pressed.");
-                PlayerPrefs.SetInt("Avatar", IndexCounter);
-                PlayerPrefs.Save();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    Debug.Log("Return key was pressed.");
+                    PlayerPrefs.SetInt("Avatar", IndexCounter);
+                    PlayerPrefs.Save();
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
-        }
-        if (CurrentAvatar != C1)
-        {
-            secutor.SetActive(false);
-        }
-        else
-        {
-            secutor.SetActive(true);
-        }
-        if (CurrentAvatar == C2)
-        {
-            senator.SetActive(true);
-        }
-        else 
-        {
-            senator.SetActive(false); 
-        }
-
-
-        /*if (CurrentAvatar != C1)
-        {
-            if (P2.activeSelf)
+            if (CurrentAvatar != C1)
             {
-                P2C1.SetActive(false);
+                secutor.SetActive(false);
             }
-        }
-        else
-        {
-            if (P2.activeSelf)
+            else
             {
-                P2C1.SetActive(true);
+                secutor.SetActive(true);
             }
-        }
+            if (CurrentAvatar == C2)
+            {
+                senator.SetActive(true);
+            }
+            else
+            {
+                senator.SetActive(false);
+            }
 
 
-        if (CurrentAvatar == C2)
-        {
-            if (P2.activeSelf)
+            /*if (CurrentAvatar != C1)
             {
-                P2C2.SetActive(true);
+                if (P2.activeSelf)
+                {
+                    P2C1.SetActive(false);
+                }
             }
-        }
-        else
-        {
-            if (P2.activeSelf)
+            else
             {
-                P2C2.SetActive(false);
+                if (P2.activeSelf)
+                {
+                    P2C1.SetActive(true);
+                }
             }
-        }*/
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
+
+            if (CurrentAvatar == C2)
+            {
+                if (P2.activeSelf)
+                {
+                    P2C2.SetActive(true);
+                }
+            }
+            else
+            {
+                if (P2.activeSelf)
+                {
+                    P2C2.SetActive(false);
+                }
+            }*/
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
             CurrentAvatar = NextAvatar;
 
-        //Debug.Log("IndexCounter: " + IndexCounter);
+            //Debug.Log("IndexCounter: " + IndexCounter);
+        }
     }
 
     GameObject FindAvatar(int avatarIndex)

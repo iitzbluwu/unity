@@ -31,10 +31,10 @@ public class Menu1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentAvatar = C1;
-        C1.SetActive(true);
-        IndexCounter = 1;
-        NextAvatar = C1;
+        CurrentAvatar = C2;
+        C2.SetActive(true);
+        IndexCounter = 2;
+        NextAvatar = C2;
     }
 
     // Update is called once per frame
@@ -87,7 +87,7 @@ public class Menu1 : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     Debug.Log("Return key was pressed.");
-                    PlayerPrefs.SetInt("Avatar", IndexCounter);
+                    PlayerPrefs.SetInt("Avatar2", IndexCounter);
                     PlayerPrefs.Save();
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }

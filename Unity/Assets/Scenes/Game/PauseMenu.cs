@@ -33,7 +33,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMainMenu()
     {
-        // Replace "MainMenuScene" with the name of your main menu scene
+        isPaused = false;
+        Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MEMEZ");
     }
 

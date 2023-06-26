@@ -27,11 +27,20 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("SpawnEnemy", 2f, spawnInterval);
+        InvokeRepeating("DisplaySpawnProbabilities", 20f, 20f);
     }
 
     private void Update()
     {
         elapsedTime += Time.deltaTime;
+    }
+
+    private void DisplaySpawnProbabilities()
+    {
+        SpawnInterval currentInterval = GetSpawnInterval();
+        Debug.Log($"Current Interval: {currentInterval.duration}s");
+        Debug.Log($"Rat Spawn Probability: {currentInterval.ratSpawnProbability * 100}%");
+        Debug.Log($"Legionaer Spawn Probability: {currentInterval.legionaerSpawnProbability * 100}%");
     }
 
     private void SpawnEnemy()
@@ -90,7 +99,6 @@ public class EnemySpawner : MonoBehaviour
             CancelInvoke("SpawnEnemy");
         }
     }
-
 
     private SpawnInterval GetSpawnInterval()
     {

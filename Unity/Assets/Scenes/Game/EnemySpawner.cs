@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Determine the spawn position and side
-        spawnOnLeft = randomValue < 0.5f;
+        spawnOnLeft = randomValue < currentInterval.ratSpawnProbability; // Use ratSpawnProbability as the threshold
         spawnX = spawnOnLeft ? -15f : 15f;
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
@@ -90,6 +90,7 @@ public class EnemySpawner : MonoBehaviour
             CancelInvoke("SpawnEnemy");
         }
     }
+
 
     private SpawnInterval GetSpawnInterval()
     {

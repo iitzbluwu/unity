@@ -27,7 +27,7 @@ public class playCon_2 : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&& !isAttacking) 
+        if (Input.GetKeyDown(KeyCode.W)&& !isAttacking) 
         {
             isAttacking = true;
         }

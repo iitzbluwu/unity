@@ -26,7 +26,7 @@ public class GameEndUIManager : MonoBehaviour
         legionaerCount++;
 
         // Check if the maximum number of legionaer enemies has been reached
-        if (legionaerCount >= 1)
+        if (legionaerCount >= 10)
         {
             EndGame();
         }

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -7,14 +9,38 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 5f;
     public float spawnY = 0f; // Y-Position of the spawn point
 
-    private int consecutiveSpawns = 0; // Number of consecutive spawns on the same side
-    private bool spawnOnLeft = true; // Start with spawn on the left side
+    private float elapsedTime = 0f; // Total elapsed time
+    private int ratCount = 0; // Number of spawned rat enemies
+    private int legionaerCount = 0; // Number of spawned legionaer enemies
 
-    public int ratCount;
+    // Define time intervals and their corresponding spawn probabilities
+    public SpawnInterval[] spawnIntervals;
+
+    [Serializable]
+    public struct SpawnInterval
+    {
+        public float duration; // Duration of the interval
+        [Range(0f, 1f)] public float ratSpawnProbability; // Probability of spawning a rat enemy
+        [Range(0f, 1f)] public float legionaerSpawnProbability; // Probability of spawning a legionaer enemy
+    }
 
     private void Start()
     {
         InvokeRepeating("SpawnEnemy", 2f, spawnInterval);
+        InvokeRepeating("DisplaySpawnProbabilities", 20f, 20f);
+    }
+
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
+    }
+
+    private void DisplaySpawnProbabilities()
+    {
+        SpawnInterval currentInterval = GetSpawnInterval();
+        Debug.Log($"Current Interval: {currentInterval.duration}s");
+        Debug.Log($"Rat Spawn Probability: {currentInterval.ratSpawnProbability * 100}%");
+        Debug.Log($"Legionaer Spawn Probability: {currentInterval.legionaerSpawnProbability * 100}%");
     }
 
     private void SpawnEnemy()
@@ -22,22 +48,12 @@ public class EnemySpawner : MonoBehaviour
         float spawnX;
         bool spawnOnLeft;
 
-        if (ratCount < 5)
-        {
-            spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for rat
-            spawnX = spawnOnLeft ? -15f : 15f;
-        }
-        else
-        {
-            spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for legionaer
-            spawnX = spawnOnLeft ? -15f : 15f;
-        }
+        SpawnInterval currentInterval = GetSpawnInterval();
 
-        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
-
+        // Determine the enemy type based on the spawn probabilities
         GameObject selectedEnemyPrefab;
-
-        if (ratCount < 5)
+        float randomValue = Random.value;
+        if (randomValue < currentInterval.ratSpawnProbability)
         {
             selectedEnemyPrefab = ratPrefab;
         }
@@ -45,6 +61,11 @@ public class EnemySpawner : MonoBehaviour
         {
             selectedEnemyPrefab = legionaerPrefab;
         }
+
+        // Determine the spawn position and side
+        spawnOnLeft = randomValue < currentInterval.ratSpawnProbability; // Use ratSpawnProbability as the threshold
+        spawnX = spawnOnLeft ? -15f : 15f;
+        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
         // Instantiate the selected enemy prefab with the appropriate spawn position and rotation
         GameObject enemy = Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
@@ -59,18 +80,37 @@ public class EnemySpawner : MonoBehaviour
             enemyRenderer.flipX = true;
         }
 
-        ratCount++;
+        if (selectedEnemyPrefab == ratPrefab)
+        {
+            ratCount++;
+        }
+        else if (selectedEnemyPrefab == legionaerPrefab)
+        {
+            legionaerCount++;
+        }
 
-        // Check if the maximum number of regular enemies has been reached
-        if (ratCount >= 5)
+        Enemy enemyComponent = enemy.GetComponent<Enemy>();
+        enemyComponent.ratAnimator = enemy.GetComponent<Animator>();
+        enemyComponent.enemyAI = enemy.GetComponent<EnemyAI>();
+
+        // Check if the maximum number of enemies has been reached for the current interval
+        if (currentInterval.ratSpawnProbability == 0f && currentInterval.legionaerSpawnProbability == 0f)
         {
-            spawnOnLeft = !spawnOnLeft; // Switch sides for legionaer
+            CancelInvoke("SpawnEnemy");
         }
-        else
+    }
+
+    private SpawnInterval GetSpawnInterval()
+    {
+        foreach (SpawnInterval interval in spawnIntervals)
         {
-            Enemy enemyComponent = enemy.GetComponent<Enemy>();
-            enemyComponent.ratAnimator = enemy.GetComponent<Animator>();
-            enemyComponent.enemyAI = enemy.GetComponent<EnemyAI>();
+            if (elapsedTime <= interval.duration)
+            {
+                return interval;
+            }
         }
+
+        // Return the last defined interval if the elapsed time exceeds all intervals
+        return spawnIntervals[spawnIntervals.Length - 1];
     }
 }

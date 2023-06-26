@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -18,6 +17,8 @@ public class Enemy : MonoBehaviour
     private Transform player; // Referenz auf den Spieler
     private bool isAlive = true; // Variable, um den Lebensstatus des Gegners zu verfolgen
 
+    public static event Action OnLegionaerDeath; // Added event for legionaer death
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -29,16 +30,16 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
-{
-    if (!isAlive) return;
-
-    // Angriffsreichweite
-    if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
     {
-        canAttack = false;
-        Invoke("DealDamageToPlayer", attackDelay);
+        if (!isAlive) return;
+
+        // Angriffsreichweite
+        if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
+        {
+            canAttack = false;
+            Invoke("DealDamageToPlayer", attackDelay);
+        }
     }
-}
 
     public void TakeDamage(int damage)
     {
@@ -52,9 +53,14 @@ public class Enemy : MonoBehaviour
             rb2d.isKinematic = true;
             enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
-            ratAnimator.SetBool("Dead",true);
+            ratAnimator.SetBool("Dead", true);
             //legionaerAnimator.SetTrigger("isDED");
             Invoke("Die", 2.0f);
+
+            if (OnLegionaerDeath != null && gameObject.CompareTag("Legionaer")) // Check if this is a legionaer enemy
+            {
+                OnLegionaerDeath.Invoke(); // Trigger legionaer death event
+            }
         }
     }
 
@@ -63,17 +69,15 @@ public class Enemy : MonoBehaviour
         canAttack = true;
     }
 
-void Die()
-{
-    Debug.Log("Enemy Ded!");
+    void Die()
+    {
+        Debug.Log("Enemy Ded!");
 
-    GetComponent<Collider2D>().enabled = false;
-    GetComponent<SpriteRenderer>().enabled = false;
-    this.enabled = false;
-    Destroy(gameObject); // Destroy the enemy object
-}
-
-
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        this.enabled = false;
+        Destroy(gameObject); // Destroy the enemy object
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {

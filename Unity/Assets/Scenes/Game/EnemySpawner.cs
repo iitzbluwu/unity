@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
 
     public int ratCount;
 
+    //public static event Action OnLegionaerDeath; // Added event for legionaer death
+
     private void Start()
     {
         InvokeRepeating("SpawnEnemy", 2f, spawnInterval);
@@ -24,12 +27,12 @@ public class EnemySpawner : MonoBehaviour
 
         if (ratCount < 5)
         {
-            spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for rat
+            spawnOnLeft = UnityEngine.Random.value < 0.5f; // Randomly determine the side for rat
             spawnX = spawnOnLeft ? -15f : 15f;
         }
         else
         {
-            spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for legionaer
+            spawnOnLeft = UnityEngine.Random.value < 0.5f; // Randomly determine the side for legionaer
             spawnX = spawnOnLeft ? -15f : 15f;
         }
 

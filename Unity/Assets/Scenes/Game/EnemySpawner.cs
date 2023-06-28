@@ -45,9 +45,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float spawnX;
-        bool spawnOnLeft;
-
         SpawnInterval currentInterval = GetSpawnInterval();
 
         // Determine the enemy type based on the spawn probabilities
@@ -57,14 +54,19 @@ public class EnemySpawner : MonoBehaviour
         {
             selectedEnemyPrefab = ratPrefab;
         }
-        else
+        else if (randomValue < currentInterval.ratSpawnProbability + currentInterval.legionaerSpawnProbability)
         {
             selectedEnemyPrefab = legionaerPrefab;
         }
+        else
+        {
+            // No enemy to spawn in this interval
+            return;
+        }
 
         // Determine the spawn position and side
-        spawnOnLeft = randomValue < currentInterval.ratSpawnProbability; // Use ratSpawnProbability as the threshold
-        spawnX = spawnOnLeft ? -15f : 15f;
+        bool spawnOnLeft = Random.value < 0.5f;
+        float spawnX = spawnOnLeft ? -15f : 15f;
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
         // Instantiate the selected enemy prefab with the appropriate spawn position and rotation
@@ -92,12 +94,6 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemyComponent = enemy.GetComponent<Enemy>();
         enemyComponent.ratAnimator = enemy.GetComponent<Animator>();
         enemyComponent.enemyAI = enemy.GetComponent<EnemyAI>();
-
-        // Check if the maximum number of enemies has been reached for the current interval
-        if (currentInterval.ratSpawnProbability == 0f && currentInterval.legionaerSpawnProbability == 0f)
-        {
-            CancelInvoke("SpawnEnemy");
-        }
     }
 
     private SpawnInterval GetSpawnInterval()

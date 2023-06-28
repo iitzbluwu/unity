@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 5;
     public static int currentHealth;
+    public Animator HitnDeath;
 
     public int CurrentHealth
     {
@@ -29,8 +30,10 @@ public class Player : MonoBehaviour
     {
         if (!isInvincible && !playerBlock.IsBlocking)
         {
+            HitnDeath.SetTrigger("hurt");
             currentHealth -= damage;
             Debug.Log("Player Health: " + currentHealth);
+
 
             if (currentHealth <= 0)
             {

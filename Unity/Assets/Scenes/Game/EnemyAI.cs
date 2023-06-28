@@ -12,12 +12,14 @@ public class EnemyAI : MonoBehaviour
     public bool isAlive = true;
 
     private Rigidbody2D rb;
+    private EnemyAI[] allEnemies; // Array to store references to all enemies
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        allEnemies = FindObjectsOfType<EnemyAI>(); // Find all enemies in the scene
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     {
         AI();
     }
+
     void AI()
     {
         if (isAlive)
@@ -35,6 +38,17 @@ public class EnemyAI : MonoBehaviour
 
                 if (direction.magnitude > approachDistance)
                 {
+                    // Check if any enemy is already close to this enemy
+                    foreach (EnemyAI enemy in allEnemies)
+                    {
+                        if (enemy != this && Vector2.Distance(transform.position, enemy.transform.position) < approachDistance)
+                        {
+                            aniRat.SetBool("laufen", false);
+                            rb.velocity = Vector2.zero;
+                            return; // Stop moving if any enemy is too close
+                        }
+                    }
+
                     aniRat.SetBool("laufen", true);
                     //aniLegionaer.SetBool("laufen", true);
                     direction.Normalize();

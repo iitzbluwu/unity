@@ -73,7 +73,7 @@ public class GameEndUIManager : MonoBehaviour
 
     private void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu"); // Replace "MainMenu" with the name of your main menu scene
+        SceneManager.LoadScene(0); // Replace "MainMenu" with the name of your main menu scene
         Time.timeScale = 1f; // Unfreeze the game
     }
 

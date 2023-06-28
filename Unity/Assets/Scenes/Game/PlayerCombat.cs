@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float attackRange = 0.5f;
-    public int attackDamage = 10;
+    public int attackDamage = 1;
 
     // Combo Timing Variables
     private bool isComboActive = false;
@@ -31,6 +31,13 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if blocking, if so, disable attacking
+        PlayerBlock playerBlock = GetComponent<PlayerBlock>();
+        if (playerBlock.IsBlocking)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             if (isComboActive)

@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool canAttack = true;
     public float attackDelay = 2f;
-    public int damageAmount = 10;
+    public int damageAmount = 1;
     public float attackRange = 2f; // Angriffsreichweite des Gegners
 
     private Transform player; // Referenz auf den Spieler

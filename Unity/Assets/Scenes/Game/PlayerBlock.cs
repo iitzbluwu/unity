@@ -50,7 +50,6 @@ public class PlayerBlock : MonoBehaviour
         {
             StopBlocking();
             block_Ani.SetTrigger("block");
-            
         }
     }
 
@@ -59,7 +58,7 @@ public class PlayerBlock : MonoBehaviour
         if (!isBlocking && player.CurrentHealth > 0)
         {
             isBlocking = true;
-            
+
             // Get the direction the player is facing
             Vector2 facingDirection = transform.up;
 
@@ -77,12 +76,14 @@ public class PlayerBlock : MonoBehaviour
                 blockEffect.transform.parent = transform;
             }
 
+            // Disable movement and combat during blocking
+            GetComponent<Movement>().enabled = false;
+            GetComponent<PlayerCombat>().enabled = false;
+
             // Log the block direction
             Debug.Log("Block Direction: " + blockDirection);
         }
     }
-
-
 
     private void StopBlocking()
     {
@@ -95,6 +96,10 @@ public class PlayerBlock : MonoBehaviour
             {
                 Destroy(blockEffect);
             }
+
+            // Enable movement and combat after blocking
+            GetComponent<Movement>().enabled = true;
+            GetComponent<PlayerCombat>().enabled = true;
         }
     }
 
@@ -129,12 +134,12 @@ public class PlayerBlock : MonoBehaviour
             else
             {
                 // Player fails to block the attack
-                player.TakeDamage(10);
+                //player.TakeDamage(1);
             }
         }
         else
         {
-            player.TakeDamage(10);
+            //player.TakeDamage(1);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 5;
     public static int currentHealth;
 
     public int CurrentHealth
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player Ded!");
         gameObject.SetActive(false);
-        //Game Over anzeigen
+        // Game Over anzeigen
         Screen.SetActive(true);
         lose.SetActive(true);
         win.SetActive(false);
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     {
         isInvincible = true;
 
-        //visuelle Darstellung des Spielers während der Unverwundbarkeit zu ändern (z.B. Farbänderung)
+        // visuelle Darstellung des Spielers während der Unverwundbarkeit zu ändern (z.B. Farbänderung)
 
         yield return new WaitForSeconds(invincibilityDuration);
 

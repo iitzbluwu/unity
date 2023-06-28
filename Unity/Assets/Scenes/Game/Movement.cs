@@ -11,14 +11,25 @@ public class Movement : MonoBehaviour
     private bool isMirrored = false;
     private float moveDirection;
 
+    private PlayerBlock playerBlock;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerBlock = GetComponent<PlayerBlock>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Check if blocking, if so, disable movement
+        if (playerBlock.IsBlocking)
+        {
+            rb.velocity = Vector2.zero;
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+
         //raw for instant movement
         float previousMoveDirection = moveDirection;
         moveDirection = Input.GetAxisRaw("Horizontal");

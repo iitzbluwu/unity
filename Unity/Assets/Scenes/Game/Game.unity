@@ -668,6 +668,7 @@ MonoBehaviour:
   blockKey: 115
   blockDuration: 60
   blockEffectPrefab: {fileID: 0}
+  block_Ani: {fileID: 140758906}
 --- !u!1 &154329260
 GameObject:
   m_ObjectHideFlags: 0

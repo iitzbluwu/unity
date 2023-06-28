@@ -11,6 +11,7 @@ public class PlayerBlock : MonoBehaviour
     private Player player;
     private GameObject blockEffect;
     private Vector2 blockDirection;
+    public Animator block_Ani;
 
     public bool IsBlocking
     {
@@ -42,11 +43,14 @@ public class PlayerBlock : MonoBehaviour
     {
         if (Input.GetKeyDown(blockKey))
         {
+            block_Ani.Play("Secutor_Block");
             StartBlocking();
         }
         else if (Input.GetKeyUp(blockKey))
         {
             StopBlocking();
+            block_Ani.SetTrigger("block");
+            
         }
     }
 

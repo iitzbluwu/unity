@@ -1,31 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
-    public static int currentHealth; 
+    public static int currentHealth;
 
     public int CurrentHealth
     {
         get { return currentHealth; }
     }
-    
+
     public float invincibilityDuration = 1f;
     private bool isInvincible = false;
     public GameObject Screen;
     public GameObject win;
     public GameObject lose;
 
+    private PlayerBlock playerBlock;
+
     void Start()
     {
         currentHealth = maxHealth;
+        playerBlock = GetComponent<PlayerBlock>();
     }
 
     public void TakeDamage(int damage)
     {
-        if (!isInvincible)
+        if (!isInvincible && !playerBlock.IsBlocking)
         {
             currentHealth -= damage;
             Debug.Log("Player Health: " + currentHealth);

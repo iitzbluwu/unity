@@ -19,8 +19,12 @@ public class Enemy : MonoBehaviour
 
     public static event Action OnLegionaerDeath; // Added event for legionaer death
 
+    private PlayerBlock playerBlock;
+
     void Start()
     {
+        playerBlock = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBlock>();
+
         rb2d = GetComponent<Rigidbody2D>();
 
         currentHealth = maxHealth;
@@ -86,10 +90,17 @@ public class Enemy : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
             {
+                // Log the attack direction
+                Vector2 attackDirection = player.transform.position - transform.position;
+                Debug.Log("Attack Direction: " + attackDirection.normalized);
+
+                playerBlock.OnEnemyAttack(attackDirection.normalized);
+
                 Invoke("DealDamageToPlayer", 1.0f);
             }
         }
     }
+
 
     void DealDamageToPlayer()
     {
@@ -115,4 +126,5 @@ public class Enemy : MonoBehaviour
             player.TakeDamage(damageAmount);
         }
     }
+
 }

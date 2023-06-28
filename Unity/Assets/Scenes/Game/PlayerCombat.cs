@@ -33,25 +33,33 @@ public class PlayerCombat : MonoBehaviour
     private float nach3 = 0.375f;
     private float trans3 = 0.083f;
 
+    // Attack state variable
+    public bool isAttacking = false;
+
+    public bool IsComboActive
+    {
+        get { return isComboActive; }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // Check if blocking, if so, disable attacking
+        // Check if blocking or attacking, if so, disable attacking
         PlayerBlock playerBlock = GetComponent<PlayerBlock>();
-        if (playerBlock.IsBlocking)
+        if (playerBlock.IsBlocking /*|| isAttacking*/)
         {
             return;
         }
 
-        if(attackCDcurrent >= attackCD)
-        { 
+        if (attackCDcurrent >= attackCD)
+        {
             attackready = true;
         }
         else
         {
             attackready = false;
             attackCDcurrent += Time.deltaTime;
-            attackCDcurrent = Mathf.Clamp(attackCDcurrent,0.0f,attackCD);
+            attackCDcurrent = Mathf.Clamp(attackCDcurrent, 0.0f, attackCD);
         }
 
         if (Input.GetKeyDown(KeyCode.W) && attackready)
@@ -87,6 +95,7 @@ public class PlayerCombat : MonoBehaviour
 
     void StartCombo()
     {
+        isAttacking = true;
         Invoke("Attack1", vor1);
         Invoke("Attack1Delayed", vor1 + nach1);
         Invoke("Attack1Transition", vor1 + nach1 + trans1);
@@ -112,6 +121,10 @@ public class PlayerCombat : MonoBehaviour
             isComboActive = false;
             comboTimer = 0f;
         }
+
+        // Disable movement during combo attacks
+        Movement movement = GetComponent<Movement>();
+        movement.DisableMovement();
     }
 
     void Attack1()
@@ -128,11 +141,13 @@ public class PlayerCombat : MonoBehaviour
     void Attack1Delayed()
     {
         // Code for delayed action after the first attack
+        isAttacking = false;
     }
 
     void Attack1Transition()
     {
         // Code for transition action after the first attack
+        //isAttacking = false;
     }
 
     void Attack2()
@@ -154,6 +169,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack2Transition()
     {
         // Code for transition action after the second attack
+        isAttacking = false;
     }
 
     void Attack3()
@@ -175,6 +191,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack3Transition()
     {
         // Code for transition action after the third attack
+        //isAttacking = false;
     }
 
     void OnDrawGizmosSelected()

@@ -30,39 +30,42 @@ public class EnemyAI : MonoBehaviour
 
     void AI()
     {
-        if (isAlive)
+        if (!isAlive)
         {
-            if (player != null)
+            return;
+        }
+
+        if (player != null)
+        {
+            Vector2 direction = player.transform.position - transform.position;
+
+            if (direction.magnitude > approachDistance)
             {
-                Vector2 direction = player.transform.position - transform.position;
-
-                if (direction.magnitude > approachDistance)
+                // Check if any enemy is already close to this enemy
+                foreach (EnemyAI enemy in allEnemies)
                 {
-                    // Check if any enemy is already close to this enemy
-                    foreach (EnemyAI enemy in allEnemies)
+                    if (enemy != null && enemy != this && enemy.isAlive && Vector2.Distance(transform.position, enemy.transform.position) < approachDistance)
                     {
-                        if (enemy != this && Vector2.Distance(transform.position, enemy.transform.position) < approachDistance)
-                        {
-                            aniRat.SetBool("laufen", false);
-                            rb.velocity = Vector2.zero;
-                            return; // Stop moving if any enemy is too close
-                        }
+                        aniRat.SetBool("laufen", false);
+                        rb.velocity = Vector2.zero;
+                        return; // Stop moving if any enemy is too close
                     }
+                }
 
-                    aniRat.SetBool("laufen", true);
-                    //aniLegionaer.SetBool("laufen", true);
-                    direction.Normalize();
-                    rb.velocity = direction * speed;
-                }
-                else
-                {
-                    aniRat.SetBool("laufen", false);
-                    //aniLegionaer.SetBool("laufen", false);
-                    rb.velocity = Vector2.zero;
-                }
+                aniRat.SetBool("laufen", true);
+                //aniLegionaer.SetBool("laufen", true);
+                direction.Normalize();
+                rb.velocity = direction * speed;
+            }
+            else
+            {
+                aniRat.SetBool("laufen", false);
+                //aniLegionaer.SetBool("laufen", false);
+                rb.velocity = Vector2.zero;
             }
         }
     }
+
 
     public void deadge()
     {

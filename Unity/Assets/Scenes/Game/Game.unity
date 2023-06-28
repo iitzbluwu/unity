@@ -601,6 +601,9 @@ MonoBehaviour:
     m_Bits: 64
   attackRange: 0.65
   attackDamage: 1
+  attackready: 0
+  attackCD: 0.5
+  attackCDcurrent: 0
 --- !u!95 &140758906
 Animator:
   serializedVersion: 5
@@ -815,6 +818,9 @@ MonoBehaviour:
     m_Bits: 64
   attackRange: 1
   attackDamage: 10
+  attackready: 0
+  attackCD: 1.2
+  attackCDcurrent: 0
 --- !u!114 &180275481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2245,6 +2251,9 @@ MonoBehaviour:
     m_Bits: 64
   attackRange: 1
   attackDamage: 10
+  attackready: 0
+  attackCD: 1.2
+  attackCDcurrent: 0
 --- !u!114 &689864526
 MonoBehaviour:
   m_ObjectHideFlags: 0

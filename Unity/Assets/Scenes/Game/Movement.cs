@@ -5,7 +5,6 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float moveSpeed;
-
     public Animator animator;
 
     private Rigidbody2D rb;
@@ -20,27 +19,29 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", Mathf.Abs(moveDirection));
-
         //raw for instant movement
+        float previousMoveDirection = moveDirection;
         moveDirection = Input.GetAxisRaw("Horizontal");
 
-        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+        // Update the animator parameter based on the move direction
+        animator.SetFloat("Speed", Mathf.Abs(moveDirection));
 
-        if (Input.GetKeyDown(KeyCode.A))
+        // Check if the move direction has changed
+        if (moveDirection != previousMoveDirection)
         {
-            if (!isMirrored)
+            if (moveDirection < 0 && !isMirrored)
             {
+                // Player is moving left, but not mirrored
+                FlipCharacter();
+            }
+            else if (moveDirection > 0 && isMirrored)
+            {
+                // Player is moving right, but mirrored
                 FlipCharacter();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (isMirrored)
-            {
-                FlipCharacter();
-            }
-        }
+
+        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
     }
 
     private void FlipCharacter()

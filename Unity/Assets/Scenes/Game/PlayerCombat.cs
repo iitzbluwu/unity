@@ -10,6 +10,11 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 1;
 
+    public bool attackready;
+    public float attackCD = 1.2f;
+    public float attackCDcurrent = 0.0f;
+
+
     // Combo Timing Variables
     private bool isComboActive = false;
     private float comboTimer = 0f;
@@ -38,7 +43,18 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if(attackCDcurrent >= attackCD)
+        { 
+            attackready = true;
+        }
+        else
+        {
+            attackready = false;
+            attackCDcurrent += Time.deltaTime;
+            attackCDcurrent = Mathf.Clamp(attackCDcurrent,0.0f,attackCD);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && attackready)
         {
             if (isComboActive)
             {
@@ -53,6 +69,7 @@ public class PlayerCombat : MonoBehaviour
                 comboTimer = 0f;
                 StartCombo();
             }
+            attackCDcurrent = 0.0f;
         }
 
         if (isComboActive)

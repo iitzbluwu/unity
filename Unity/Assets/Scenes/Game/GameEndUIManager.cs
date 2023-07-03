@@ -12,6 +12,7 @@ public class GameEndUIManager : MonoBehaviour
 
     private int legionaerCount;
     private float sceneStartTime;
+    private Button selectedButton;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class GameEndUIManager : MonoBehaviour
 
         // Store the scene start time
         sceneStartTime = Time.time;
+
+        SelectButton(mainMenuButton);
     }
 
     private void HandleLegionaerDeath()
@@ -73,13 +76,54 @@ public class GameEndUIManager : MonoBehaviour
 
     private void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(0); // Replace "MainMenu" with the name of your main menu scene
         Time.timeScale = 1f; // Unfreeze the game
+        SceneManager.LoadScene(0); // Replace "MainMenu" with the name of your main menu scene
     }
 
     private void QuitGame()
     {
         Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (gameEndPanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                if (selectedButton == quitButton)
+                    SelectButton(mainMenuButton);
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                if (selectedButton == mainMenuButton)
+                    SelectButton(quitButton);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                ActivateButton();
+            }
+        }
+    }
+
+    private void SelectButton(Button button)
+    {
+        if (selectedButton != null)
+        {
+            selectedButton.interactable = true;
+        }
+
+        selectedButton = button;
+        selectedButton.interactable = false;
+    }
+
+    private void ActivateButton()
+    {
+        if (selectedButton != null)
+        {
+            selectedButton.onClick.Invoke();
+        }
     }
 
     private void OnDestroy()

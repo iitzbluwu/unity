@@ -4528,6 +4528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1855917067}
+  continueButton: {fileID: 302453672}
+  mainMenuButton: {fileID: 1853785714}
+  quitButton: {fileID: 1490605720}
   pauseText: {fileID: 246658840}
 --- !u!1 &1579589792
 GameObject:

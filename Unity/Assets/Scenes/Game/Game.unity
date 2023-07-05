@@ -4330,6 +4330,10 @@ MonoBehaviour:
     legionaerSpawnProbability: 0.8
     greifSpawnProbability: 0
   - duration: 100
+    ratSpawnProbability: 0
+    legionaerSpawnProbability: 0
+    greifSpawnProbability: 1
+  - duration: 109
     ratSpawnProbability: 0.2
     legionaerSpawnProbability: 0.75
     greifSpawnProbability: 0.05

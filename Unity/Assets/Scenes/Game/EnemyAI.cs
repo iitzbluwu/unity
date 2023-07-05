@@ -69,6 +69,8 @@ public class EnemyAI : MonoBehaviour
 
     public void deadge()
     {
+        rb.velocity = Vector2.zero;
+        aniRat.SetBool("laufen", false);
         isAlive = false;
     }
 }

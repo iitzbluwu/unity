@@ -4072,7 +4072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f20787d39126db4db92a12389b0c862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathScreenPanel: {fileID: 1648779853}
+  deathScreenPanel: {fileID: 1425582162}
   mainMenuButton: {fileID: 714319876}
   retryButton: {fileID: 859898080}
 --- !u!1 &1446035557

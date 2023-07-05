@@ -4314,9 +4314,29 @@ MonoBehaviour:
   spawnInterval: 5
   spawnIntervals:
   - duration: 20
-    ratSpawnProbability: 0.3
-    legionaerSpawnProbability: 0.3
-    greifSpawnProbability: 0.3
+    ratSpawnProbability: 1
+    legionaerSpawnProbability: 0
+    greifSpawnProbability: 0
+  - duration: 40
+    ratSpawnProbability: 0.8
+    legionaerSpawnProbability: 0.2
+    greifSpawnProbability: 0
+  - duration: 60
+    ratSpawnProbability: 0.5
+    legionaerSpawnProbability: 0.5
+    greifSpawnProbability: 0
+  - duration: 69
+    ratSpawnProbability: 0
+    legionaerSpawnProbability: 0
+    greifSpawnProbability: 1
+  - duration: 80
+    ratSpawnProbability: 0.2
+    legionaerSpawnProbability: 0.8
+    greifSpawnProbability: 0
+  - duration: 100
+    ratSpawnProbability: 0.2
+    legionaerSpawnProbability: 0.75
+    greifSpawnProbability: 0.05
 --- !u!4 &1464604014
 Transform:
   m_ObjectHideFlags: 0

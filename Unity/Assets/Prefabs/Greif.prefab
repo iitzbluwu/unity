@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 664358378172386157}
   - component: {fileID: 5722192659143839602}
   - component: {fileID: 4605388454172376467}
-  - component: {fileID: 1852498573955503044}
+  - component: {fileID: 7419299004788725792}
   - component: {fileID: 7796222869503909457}
   - component: {fileID: 9100963889527708430}
   - component: {fileID: 69024975055287632}
@@ -115,7 +115,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &1852498573955503044
+--- !u!114 &7419299004788725792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,15 +124,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 368922992779637826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c32529dc5e3564e82fb1bf6bc90ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: f965c215dbba26c48a9955136989138a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
-  ratAnimator: {fileID: 256532845984349896, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
-  enemyAI: {fileID: 0}
-  attackDelay: 0
-  damageAmount: 1
-  attackRange: 0
 --- !u!114 &7796222869503909457
 MonoBehaviour:
   m_ObjectHideFlags: 0

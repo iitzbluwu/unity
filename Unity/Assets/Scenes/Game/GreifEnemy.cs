@@ -11,11 +11,8 @@ public class GreifEnemy : MonoBehaviour
 
     public static event Action OnGreifDeath; // Event für Greif-Tod
 
-    private Player player;
-
-    void Start()
+    private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         currentHealth = maxHealth;
     }
 
@@ -56,7 +53,7 @@ public class GreifEnemy : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null && isAlive) // Überprüfe zusätzlich, ob der Gegner noch am Leben ist
             {
-                player.TakeDamage(1);
+                player.TakeDamage(1); // Verursache 1 Schaden am Spieler
             }
         }
     }

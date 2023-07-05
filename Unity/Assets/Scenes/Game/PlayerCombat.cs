@@ -129,14 +129,19 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack1()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D collider in hitColliders)
         {
-            Debug.Log("Hit" + enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Debug.Log("Hit " + collider.name);
+                enemy.TakeDamage(attackDamage);
+            }
         }
     }
+
 
     void Attack1Delayed()
     {

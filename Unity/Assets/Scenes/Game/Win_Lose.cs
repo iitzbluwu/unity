@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DeathScreenManager : MonoBehaviour
+public class Win_Lose : MonoBehaviour
 {
     public GameObject deathScreenPanel;
     public Button mainMenuButton;

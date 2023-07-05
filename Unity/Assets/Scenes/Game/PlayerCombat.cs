@@ -134,11 +134,17 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D collider in hitColliders)
         {
             Enemy enemy = collider.GetComponent<Enemy>();
+            Greif greif = enemy.GetComponent<Greif>();
             if (enemy != null)
             {
-                Debug.Log("Hit " + collider.name);
+                //Debug.Log("Hit " + collider.name);
                 enemy.TakeDamage(attackDamage);
             }
+            if (greif != null)
+            {
+                greif.TakeDamage(attackDamage);
+            }
+            Debug.Log("Hit " + collider.name);
         }
     }
 
@@ -159,10 +165,20 @@ public class PlayerCombat : MonoBehaviour
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D collider in hitEnemies)
         {
-            Debug.Log("Hit" + enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Enemy enemy = collider.GetComponent<Enemy>();
+            Greif greif = enemy.GetComponent<Greif>();
+            if (enemy != null)
+            {
+                //Debug.Log("Hit " + collider.name);
+                enemy.TakeDamage(attackDamage);
+            }
+            if (greif != null)
+            {
+                greif.TakeDamage(attackDamage);
+            }
+            Debug.Log("Hit " + collider.name);
         }
     }
 
@@ -181,10 +197,20 @@ public class PlayerCombat : MonoBehaviour
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D collider in hitEnemies)
         {
-            Debug.Log("Hit" + enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Enemy enemy = collider.GetComponent<Enemy>();
+            Greif greif = enemy.GetComponent<Greif>();
+            if (enemy != null)
+            {
+                //Debug.Log("Hit " + collider.name);
+                enemy.TakeDamage(attackDamage);
+            }
+            if (greif != null)
+            {
+                greif.TakeDamage(attackDamage);
+            }
+            Debug.Log("Hit " + collider.name);
         }
     }
 

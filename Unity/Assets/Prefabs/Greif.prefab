@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 69024975055287632}
   m_Layer: 6
   m_Name: Greif
-  m_TagString: Untagged
+  m_TagString: Legionaer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f965c215dbba26c48a9955136989138a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 8
+  damageAmount: 1
 --- !u!114 &7796222869503909457
 MonoBehaviour:
   m_ObjectHideFlags: 0

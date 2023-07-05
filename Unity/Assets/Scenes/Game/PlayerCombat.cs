@@ -133,12 +133,21 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            //greif.GetComponent<Greif>().TakeDamage(attackDamage);
-            Debug.Log("Hit" + enemy.name);;
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                enemyComponent.TakeDamage(attackDamage);
+            }
+
+            Greif greif = enemy.GetComponent<Greif>();
+            if (greif != null)
+            {
+                greif.TakeDamage(attackDamage);
+            }
+
+            Debug.Log("Hit " + enemy.name);
         }
     }
-
 
     void Attack1Delayed()
     {
@@ -158,9 +167,19 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            //greif.GetComponent<Greif>().TakeDamage(attackDamage);
-            Debug.Log("Hit" + enemy.name);
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                enemyComponent.TakeDamage(attackDamage);
+            }
+
+            Greif greif = enemy.GetComponent<Greif>();
+            if (greif != null)
+            {
+                greif.TakeDamage(attackDamage);
+            }
+
+            Debug.Log("Hit " + enemy.name);
         }
     }
 
@@ -181,9 +200,19 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
-            //greif.GetComponent<Greif>().TakeDamage(attackDamage);
-            Debug.Log("Hit" + enemy.name);
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                enemyComponent.TakeDamage(attackDamage);
+            }
+
+            Greif greif = enemy.GetComponent<Greif>();
+            if (greif != null)
+            {
+                greif.TakeDamage(attackDamage);
+            }
+
+            Debug.Log("Hit " + enemy.name);
         }
     }
 

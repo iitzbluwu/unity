@@ -4325,10 +4325,6 @@ MonoBehaviour:
     ratSpawnProbability: 0.5
     legionaerSpawnProbability: 0.5
     greifSpawnProbability: 0
-  - duration: 69
-    ratSpawnProbability: 0
-    legionaerSpawnProbability: 0
-    greifSpawnProbability: 1
   - duration: 80
     ratSpawnProbability: 0.2
     legionaerSpawnProbability: 0.8

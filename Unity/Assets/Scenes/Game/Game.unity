@@ -641,9 +641,7 @@ MonoBehaviour:
   maxHealth: 5
   HitnDeath: {fileID: 140758906}
   invincibilityDuration: 1
-  Screen: {fileID: 1425582162}
-  win: {fileID: 1648779853}
-  lose: {fileID: 0}
+  Death: {fileID: 1425582162}
 --- !u!114 &140758908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,7 +2219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Retry
+  m_text: 'Main Menu
 
 '
   m_isRightToLeft: 0
@@ -4048,7 +4046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1425582163
 Transform:
   m_ObjectHideFlags: 0
@@ -4072,7 +4070,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425582162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4107,7 +4105,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4386,11 +4384,11 @@ MonoBehaviour:
     ratSpawnProbability: 0.2
     legionaerSpawnProbability: 0.8
     greifSpawnProbability: 0
-  - duration: 100
+  - duration: 84
     ratSpawnProbability: 0
     legionaerSpawnProbability: 0
     greifSpawnProbability: 1
-  - duration: 105
+  - duration: 100
     ratSpawnProbability: 0.2
     legionaerSpawnProbability: 0.75
     greifSpawnProbability: 0.05
@@ -4742,6 +4740,8 @@ MonoBehaviour:
   mainMenuButton: {fileID: 1853785714}
   quitButton: {fileID: 1490605720}
   pauseText: {fileID: 246658840}
+  Death: {fileID: 1425582162}
+  Win: {fileID: 1739250660}
 --- !u!1001 &1575228518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5267,7 +5267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Retry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -6667,7 +6667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -6688,9 +6688,9 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1446035559}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

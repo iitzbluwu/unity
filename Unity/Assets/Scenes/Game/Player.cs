@@ -14,9 +14,7 @@ public class Player : MonoBehaviour
 
     public float invincibilityDuration = 1f;
     private bool isInvincible = false;
-    public GameObject Screen;
-    public GameObject win;
-    public GameObject lose;
+    public GameObject Death;
 
     private PlayerBlock playerBlock;
 
@@ -53,9 +51,7 @@ public class Player : MonoBehaviour
         Debug.Log("Player Ded!");
         gameObject.SetActive(false);
         // Game Over anzeigen
-        Screen.SetActive(true);
-        lose.SetActive(true);
-        win.SetActive(false);
+        Death.SetActive(true);
     }
 
     IEnumerator InvincibilityCoroutine()

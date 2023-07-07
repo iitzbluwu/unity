@@ -16,13 +16,13 @@ public class Pfeiltasten : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             Stage1.SetActive(true);
             Stage2.SetActive(false);
 
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             Stage1.SetActive(false);
             Stage2.SetActive(true);

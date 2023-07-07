@@ -50,7 +50,7 @@ public class Win_Lose : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     public void RetryLevel()

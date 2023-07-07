@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 8
   damageAmount: 1
+  Greif_Ani: {fileID: 9100963889527708430}
 --- !u!114 &7796222869503909457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 1
   approachDistance: 0
-  aniRat: {fileID: 256532845984349896, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
+  aniRat: {fileID: 9100963889527708430}
   isAlive: 1
 --- !u!95 &9100963889527708430
 Animator:
@@ -156,7 +157,7 @@ Animator:
   m_GameObject: {fileID: 368922992779637826}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8b104682f7624a147a6c2705e0c31e5c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0a303faa48fc4654f93d9b8ff957aca4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

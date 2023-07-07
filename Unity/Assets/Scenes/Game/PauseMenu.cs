@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
 
     private Button selectedButton;
 
+    public GameObject Death;
+    public GameObject Win;
+
     private void Start()
     {
         pauseText.gameObject.SetActive(false);
@@ -19,7 +22,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !Death.activeSelf && !Win.activeSelf)
         {
             if (pauseMenuUI.activeSelf)
                 Resume();

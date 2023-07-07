@@ -15,15 +15,15 @@ public class Win_Lose : MonoBehaviour
     private void Start()
     {
         deathScreenPanel.SetActive(false);
-        //mainMenuButton.onClick.AddListener(ReturnToMainMenu);
-        //retryButton.onClick.AddListener(RetryLevel);
+        mainMenuButton.onClick.AddListener(ReturnToMainMenu);
+        retryButton.onClick.AddListener(RetryLevel);
 
-        //SelectButton(mainMenuButton);
+        SelectButton(mainMenuButton);
     }
 
     private void Update()
     {
-        /*if (deathScreenPanel.activeSelf)
+        if (deathScreenPanel.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -40,7 +40,7 @@ public class Win_Lose : MonoBehaviour
             {
                 ActivateButton();
             }
-        }*/
+        }
     }
 
     public void ShowDeathScreen()

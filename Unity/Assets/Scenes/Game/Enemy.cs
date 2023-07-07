@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
             isAlive = false; // Setze den Lebensstatus des Gegners auf tot
             GetComponent<Collider2D>().enabled = false;
             pub = 1;
+            FindObjectOfType<AudioManager>().Play("Publikum");
             PlayerPrefs.SetInt("pub", 1);
             PlayerPrefs.Save();
             rb2d.isKinematic = true;

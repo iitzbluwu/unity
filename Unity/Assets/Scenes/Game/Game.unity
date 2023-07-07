@@ -1868,6 +1868,8 @@ GameObject:
   m_Component:
   - component: {fileID: 372949073}
   - component: {fileID: 372949074}
+  - component: {fileID: 372949076}
+  - component: {fileID: 372949075}
   m_Layer: 0
   m_Name: "B\xFChne_Publikum_3"
   m_TagString: Untagged
@@ -1942,6 +1944,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &372949075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372949072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0335255e87f742f4ebee232bb8a9c4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ani_Publikum: {fileID: 372949076}
+--- !u!95 &372949076
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372949072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d427e7c9c675a647913c13aded7a6d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &441440301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6642,63 +6678,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &2056629294
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 368922992779637826, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_Name
-      value: Greif
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
 --- !u!1 &2107646044
 GameObject:
   m_ObjectHideFlags: 0

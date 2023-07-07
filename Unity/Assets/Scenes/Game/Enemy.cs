@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     int currentHealth;
     public Animator ratAnimator;
     public EnemyAI enemyAI;
+    public int pub = 0;
 
     private Rigidbody2D rb2d;
     private bool canAttack = true;
@@ -54,6 +55,9 @@ public class Enemy : MonoBehaviour
         {
             isAlive = false; // Setze den Lebensstatus des Gegners auf tot
             GetComponent<Collider2D>().enabled = false;
+            pub = 1;
+            PlayerPrefs.SetInt("pub", 1);
+            PlayerPrefs.Save();
             rb2d.isKinematic = true;
             enemyAI.deadge();
             ratAnimator.SetTrigger("isDED");
@@ -76,11 +80,14 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Ded!");
-
+        pub = 0;
+        PlayerPrefs.SetInt("pub", 0);
+        PlayerPrefs.Save();
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
         Destroy(gameObject); // Destroy the enemy object
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -131,5 +138,4 @@ public class Enemy : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("BlockHit");
         }
     }
-
 }

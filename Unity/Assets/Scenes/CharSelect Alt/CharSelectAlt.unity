@@ -2062,6 +2062,8 @@ MonoBehaviour:
   CurrentAvatar: {fileID: 0}
   NextAvatar: {fileID: 0}
   IndexCounter: 0
+  menuScript: {fileID: 0}
+  cursor2: {fileID: 0}
 --- !u!1 &1793359044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2733,9 @@ MonoBehaviour:
   P2: {fileID: 2121743486}
   CurrentAvatar: {fileID: 0}
   NextAvatar: {fileID: 0}
-  IndexCounter: 1
+  IndexCounter1: 1
+  menuScript: {fileID: 0}
+  cursor2: {fileID: 0}
 --- !u!1 &2130362511
 GameObject:
   m_ObjectHideFlags: 0

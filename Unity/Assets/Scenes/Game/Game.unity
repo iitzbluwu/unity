@@ -642,7 +642,7 @@ MonoBehaviour:
   HitnDeath: {fileID: 140758906}
   invincibilityDuration: 1
   Screen: {fileID: 1425582162}
-  win: {fileID: 1648779853}
+  win: {fileID: 1425582162}
   lose: {fileID: 0}
 --- !u!114 &140758908
 MonoBehaviour:

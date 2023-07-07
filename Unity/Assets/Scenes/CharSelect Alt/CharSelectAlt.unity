@@ -2010,6 +2010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775181290}
   - component: {fileID: 1775181291}
+  - component: {fileID: 1775181292}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2063,7 +2064,35 @@ MonoBehaviour:
   NextAvatar: {fileID: 0}
   IndexCounter: 0
   menuScript: {fileID: 0}
-  cursor2: {fileID: 0}
+  cursor2: {fileID: 2121743486}
+--- !u!114 &1775181292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775181289}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9131b1b316466424d9815df1094739d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  C1: {fileID: 0}
+  C2: {fileID: 0}
+  C3: {fileID: 0}
+  C4: {fileID: 0}
+  C5: {fileID: 0}
+  C6: {fileID: 0}
+  C7: {fileID: 0}
+  C8: {fileID: 0}
+  C9: {fileID: 0}
+  secutor: {fileID: 0}
+  senator: {fileID: 0}
+  P2: {fileID: 0}
+  CurrentAvatar: {fileID: 0}
+  NextAvatar: {fileID: 0}
+  IndexCounter1: 1
+  menuScript: {fileID: 0}
 --- !u!1 &1793359044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,7 +2764,6 @@ MonoBehaviour:
   NextAvatar: {fileID: 0}
   IndexCounter1: 1
   menuScript: {fileID: 0}
-  cursor2: {fileID: 0}
 --- !u!1 &2130362511
 GameObject:
   m_ObjectHideFlags: 0

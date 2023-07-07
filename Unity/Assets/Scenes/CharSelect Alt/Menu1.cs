@@ -29,7 +29,6 @@ public class Menu1 : MonoBehaviour
     public Menu menuScript;
     int index;
     int on = 0;
-    public GameObject cursor2;
 
     // Start is called before the first frame update
     void Start()

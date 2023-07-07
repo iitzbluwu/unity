@@ -53,30 +53,35 @@ public class Menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D) && IndexCounter > 0 && IndexCounter < 10)
         {      
+            //hier
+            IndexCounter += 1;
             if(P2.activeSelf == true) 
             {  
+                //das
                 if (IndexCounter == menuScript.IndexCounter1)
                 {     
+                    Debug.Log("1");
                     IndexCounter += 2;
                     CheckIndexBoundaries();       
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("1D");
+                    //Debug.Log("1D");
                 }
             }
                 else
                 {
-                    IndexCounter += 1;
+                    Debug.Log("2");
                     CheckIndexBoundaries();
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("2D");
+                    //Debug.Log("2D");
                 }
         }
         if (Input.GetKeyDown(KeyCode.A) && IndexCounter > 0 && IndexCounter < 10)
-        {          
+        {         
+            IndexCounter -= 1; 
             if(P2.activeSelf == true) 
             {  
                 if (IndexCounter == menuScript.IndexCounter1)
@@ -86,22 +91,22 @@ public class Menu : MonoBehaviour
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("1A");
+                    //Debug.Log("1A");
                 }
             }
                 else
                 {
-                    IndexCounter -= 1;
                     CheckIndexBoundaries();
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("2A");
+                    //Debug.Log("2A");
                 }
         }
 
         if (Input.GetKeyDown(KeyCode.S) && IndexCounter > 0 && IndexCounter < 10)
         {
+            IndexCounter += 3;
             if(P2.activeSelf == true) 
             { 
                 if (IndexCounter == menuScript.IndexCounter1)
@@ -111,21 +116,21 @@ public class Menu : MonoBehaviour
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("1S");
+                    //Debug.Log("1S");
                 }
             }
                 else
                 {
-                    IndexCounter += 3;
                     CheckIndexBoundaries();
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("2S");
+                    //Debug.Log("2S");
                 }
         }
         if (Input.GetKeyDown(KeyCode.W) && IndexCounter > 0 && IndexCounter < 10)
         {
+            IndexCounter -= 3;
             if(P2.activeSelf == true) 
             { 
                 if (IndexCounter == menuScript.IndexCounter1)
@@ -135,17 +140,16 @@ public class Menu : MonoBehaviour
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("1W");
+                    //Debug.Log("1W");
                 }
             }
                 else
                 {
-                    IndexCounter -= 3;
                     CheckIndexBoundaries();
                     NextAvatar = FindAvatar(IndexCounter);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
-                    Debug.Log("2W");
+                    //Debug.Log("2W");
                 }
         }
 

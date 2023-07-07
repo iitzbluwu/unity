@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     {
         if (!isInvincible && !playerBlock.IsBlocking)
         {
+            FindObjectOfType<AudioManager>().Play("PlayerHurt");
             HitnDeath.SetTrigger("hurt");
             currentHealth -= damage;
             Debug.Log("Player Health: " + currentHealth);
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                FindObjectOfType<AudioManager>().Play("PlayerDeath");
                 Die();
             }
             else

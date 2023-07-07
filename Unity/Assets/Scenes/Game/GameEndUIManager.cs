@@ -35,7 +35,7 @@ public class GameEndUIManager : MonoBehaviour
     {
         legionaerCount++;
 
-        // Check if the maximum number of legionaer enemies has been reached
+        // Win Condition
         if (legionaerCount >= 10)
         {
             EndGame();
@@ -50,6 +50,7 @@ public class GameEndUIManager : MonoBehaviour
 
     private void ActivateGameEndPanel()
     {
+        FindObjectOfType<AudioManager>().Play("Win");
         gameEndPanel.SetActive(true);
         winText.gameObject.SetActive(true);
         timeText.gameObject.SetActive(true);

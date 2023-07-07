@@ -43,11 +43,13 @@ public class PlayerBlock : MonoBehaviour
     {
         if (Input.GetKeyDown(blockKey))
         {
+            FindObjectOfType<AudioManager>().Play("BlockOn");
             block_Ani.Play("Secutor_Block");
             StartBlocking();
         }
         else if (Input.GetKeyUp(blockKey))
         {
+            FindObjectOfType<AudioManager>().Play("BlockOff");
             StopBlocking();
             block_Ani.SetTrigger("block");
         }
@@ -72,6 +74,7 @@ public class PlayerBlock : MonoBehaviour
             // Instantiate block effect
             if (blockEffectPrefab != null)
             {
+                FindObjectOfType<AudioManager>().Play("BlockHit");
                 blockEffect = Instantiate(blockEffectPrefab, transform.position, Quaternion.identity);
                 blockEffect.transform.parent = transform;
             }
@@ -118,6 +121,7 @@ public class PlayerBlock : MonoBehaviour
 
     public void OnEnemyAttack(Vector2 attackDirection)
     {
+        FindObjectOfType<AudioManager>().Play("BlockHit");
         if (isBlocking)
         {
             // Calculate the dot product between the player's block direction and the attack direction

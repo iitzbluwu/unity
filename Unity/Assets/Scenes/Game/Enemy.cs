@@ -114,6 +114,7 @@ public class Enemy : MonoBehaviour
         }
 
         Invoke("AttackDelay", attackDelay);
+        
     }
 
     void InflictDamageToPlayer()
@@ -124,6 +125,10 @@ public class Enemy : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(damageAmount);
+        }
+        if (playerBlock.IsBlocking)
+        {
+            FindObjectOfType<AudioManager>().Play("BlockHit");
         }
     }
 

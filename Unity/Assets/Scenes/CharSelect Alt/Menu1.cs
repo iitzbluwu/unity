@@ -24,17 +24,19 @@ public class Menu1 : MonoBehaviour
     public GameObject CurrentAvatar;
     public GameObject NextAvatar;
 
-    public int IndexCounter = 1;
+    public int IndexCounter1 = 1;
 
     public Menu menuScript;
     int index;
+    int on = 0;
+    public GameObject cursor2;
 
     // Start is called before the first frame update
     void Start()
     {
         CurrentAvatar = C2;
         C2.SetActive(true);
-        IndexCounter = 2;
+        IndexCounter1 = 2;
         NextAvatar = C2;
 
         menuScript = FindObjectOfType<Menu>();
@@ -50,83 +52,87 @@ public class Menu1 : MonoBehaviour
         if (P2.activeSelf)
         {
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter > 0 && IndexCounter < 10)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter1 > 0 && IndexCounter1 < 10)
             {
-                IndexCounter += 1;
+                on = 1;
+                IndexCounter1 += 1;
                 CheckIndexBoundaries();
-                if (IndexCounter != menuScript.IndexCounter)
+                if (IndexCounter1 != menuScript.IndexCounter)
                 {            
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                     //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
                 }
                 else
                 {
-                    IndexCounter += 1;
+                    IndexCounter1 += 1;
                     CheckIndexBoundaries();
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && IndexCounter > 0 && IndexCounter < 10)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && IndexCounter1 > 0 && IndexCounter1 < 10)
             {
-                IndexCounter -= 1;
+                on = 1;
+                IndexCounter1 -= 1;
                 CheckIndexBoundaries();
-                if (IndexCounter != menuScript.IndexCounter)
+                if (IndexCounter1 != menuScript.IndexCounter)
                 {            
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                     //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
                 }
                 else
                 {
-                    IndexCounter -= 1;
+                    IndexCounter1 -= 1;
                     CheckIndexBoundaries();
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) && IndexCounter > 0 && IndexCounter < 10)
+            if (Input.GetKeyDown(KeyCode.DownArrow) && IndexCounter1 > 0 && IndexCounter1 < 10)
             {
-                IndexCounter += 3;
+                on = 1;
+                IndexCounter1 += 3;
                 CheckIndexBoundaries();
-                if (IndexCounter != menuScript.IndexCounter)
+                if (IndexCounter1 != menuScript.IndexCounter)
                 {            
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                     //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
                 }
                 else
                 {
-                    IndexCounter += 3;
+                    IndexCounter1 += 3;
                     CheckIndexBoundaries();
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow) && IndexCounter > 0 && IndexCounter < 10)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && IndexCounter1 > 0 && IndexCounter1 < 10)
             {
-                IndexCounter -= 3;
+                on = 1;
+                IndexCounter1 -= 3;
                 CheckIndexBoundaries();
-                if (IndexCounter != menuScript.IndexCounter)
+                if (IndexCounter1 != menuScript.IndexCounter)
                 {            
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                     //Debug.Log("Right key was pressed. IndexCounter: " +IndexCounter);
                 }
                 else
                 {
-                    IndexCounter -= 3;
+                    IndexCounter1 -= 3;
                     CheckIndexBoundaries();
-                    NextAvatar = FindAvatar(IndexCounter);
+                    NextAvatar = FindAvatar(IndexCounter1);
                     CurrentAvatar.SetActive(false);
                     NextAvatar.SetActive(true);
                 }
@@ -138,7 +144,7 @@ public class Menu1 : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     Debug.Log("Return key was pressed.");
-                    PlayerPrefs.SetInt("Avatar2", IndexCounter);
+                    PlayerPrefs.SetInt("Avatar2", IndexCounter1);
                     PlayerPrefs.Save();
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
@@ -249,23 +255,21 @@ public class Menu1 : MonoBehaviour
 
     void CheckIndexBoundaries()
     {
-        //2 = 9 & 1 = 9
-        
-        if (IndexCounter > 9 && menuScript.IndexCounter != 9)
+        if (IndexCounter1 > 9 && menuScript.IndexCounter != 9)
         {
-            IndexCounter = 9;
+            IndexCounter1 = 9;
         }
-        else if (IndexCounter > 9 && menuScript.IndexCounter == 9)
+        else if (IndexCounter1 > 9 && menuScript.IndexCounter == 9)
         {
-            IndexCounter = 1;
+            IndexCounter1 = 1;
         }
-        if (IndexCounter < 1 && menuScript.IndexCounter != 1)
+        if (IndexCounter1 < 1 && menuScript.IndexCounter != 1)
         {
-            IndexCounter = 1;
+            IndexCounter1 = 1;
         }
-        else if (IndexCounter < 1 && menuScript.IndexCounter == 1)
+        else if (IndexCounter1 < 1 && menuScript.IndexCounter == 1)
         {
-            IndexCounter = 9;
+            IndexCounter1 = 9;
         }
     }
 }

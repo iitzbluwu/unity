@@ -4720,7 +4720,7 @@ MonoBehaviour:
   quitButton: {fileID: 1490605720}
   pauseText: {fileID: 246658840}
   Death: {fileID: 1425582162}
-  Win: {fileID: 1739250660}
+  Win: {fileID: 1232485312}
 --- !u!1001 &1575228518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4994,7 +4994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 343918631550660911, guid: 2e088b04b7f1246499c2bf73d04c6586, type: 3}
       propertyPath: sounds.Array.data[13].volume
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e088b04b7f1246499c2bf73d04c6586, type: 3}

@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !Death.activeSelf && !Win.activeSelf)
-        {
+        { 
             if (pauseMenuUI.activeSelf)
                 Resume();
             else

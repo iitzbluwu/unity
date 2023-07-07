@@ -11,11 +11,13 @@ public class Greif : MonoBehaviour
 
     public Animator Greif_Ani;
     public EnemyAI enemyAI;
+    private Rigidbody2D rb;
 
     void Start()
     {
         currentHealth = maxHealth;
         enemyAI = GetComponent<EnemyAI>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -39,14 +41,18 @@ public class Greif : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Greif_Ani.SetTrigger("hurt");
         Debug.Log("Schaden am Greif!");
         currentHealth -= damage;
+        if (currentHealth > 0)
+        {
+            Greif_Ani.SetTrigger("hurt");
+        }
 
         if (currentHealth <= 0)
         {
             enemyAI.deadge();
             Greif_Ani.SetBool("dead", true);
+            Greif_Ani.Play("Greif_death");
             Invoke("Die",3.0f);
         }
     }

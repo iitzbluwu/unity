@@ -25,15 +25,17 @@ public class Win_Lose : MonoBehaviour
     {
         if (deathScreenPanel.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                if (selectedButton == retryButton)
+                if (selectedButton != mainMenuButton)
                     SelectButton(mainMenuButton);
+                    //SelectButton(retryButton);
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKeyDown(KeyCode.A))
             {
-                if (selectedButton == mainMenuButton)
+                if (selectedButton != retryButton)
                     SelectButton(retryButton);
+                    //SelectButton(mainMenuButton);
             }
 
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))

@@ -56,6 +56,8 @@ public class Greif : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            rb.isKinematic = true;
+            GetComponent<Collider2D>().enabled = false;
             enemyAI.deadge();
             Greif_Ani.SetBool("dead", true);
             Greif_Ani.Play("Greif_death");
@@ -67,8 +69,8 @@ public class Greif : MonoBehaviour
     void Die()
     {
         Debug.Log("Greif Ded!");
+        //GetComponent<Collider2D>().enabled = false; // Disable the collider first
         isDead = true;
-        GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false; // Deaktiviert das Greif-Skript
         Destroy(gameObject); // Zerstört das Greif-Objekt

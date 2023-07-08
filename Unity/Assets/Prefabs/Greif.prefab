@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 1
-  approachDistance: 0
+  approachDistance: 1
   aniRat: {fileID: 9100963889527708430}
   isAlive: 1
 --- !u!95 &9100963889527708430

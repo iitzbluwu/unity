@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     {
         audioManager = GameObject.FindObjectOfType<AudioManager>();
         audioManager.index = 0;
+        FindObjectOfType<AudioManager>().Play("MainMenu");
         FindObjectOfType<AudioManager>().Stop("Publikum_Background");
         FindObjectOfType<AudioManager>().Stop("Theme");
         FindObjectOfType<AudioManager>().Stop("Publikum_Start");

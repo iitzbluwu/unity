@@ -11,6 +11,7 @@ public class Buttons : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("Return key was pressed.");
+            FindObjectOfType<AudioManager>().Stop("MainMenu");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

@@ -8,6 +8,7 @@ public class Greif : MonoBehaviour
     public int damageAmount = 1;
 
     private bool canDamage = true;
+    private bool isDead = false;
 
     public Animator Greif_Ani;
     public EnemyAI enemyAI;
@@ -22,7 +23,7 @@ public class Greif : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && canDamage)
+        if (!isDead && collision.gameObject.CompareTag("Player") && canDamage)
         {
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
@@ -41,6 +42,11 @@ public class Greif : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead)
+        {
+            return; // Exit early if the Greif is already dead
+        }
+        
         Debug.Log("Schaden am Greif!");
         currentHealth -= damage;
         if (currentHealth > 0)
@@ -53,13 +59,15 @@ public class Greif : MonoBehaviour
             enemyAI.deadge();
             Greif_Ani.SetBool("dead", true);
             Greif_Ani.Play("Greif_death");
-            Invoke("Die",3.0f);
+            isDead = true; // Set the Greif as dead
+            Invoke("Die", 3.0f);
         }
     }
 
     void Die()
     {
         Debug.Log("Greif Ded!");
+        isDead = true;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false; // Deaktiviert das Greif-Skript

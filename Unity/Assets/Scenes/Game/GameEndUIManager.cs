@@ -36,7 +36,7 @@ public class GameEndUIManager : MonoBehaviour
         legionaerCount++;
 
         // Win Condition
-        if (legionaerCount >= 1)
+        if (legionaerCount >= 10)
         {
             EndGame();
         }

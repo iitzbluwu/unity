@@ -36,12 +36,12 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        menuScript = GameObject.FindObjectOfType<Menu1>();
         CurrentAvatar = C1;
         C1.SetActive(true);
         IndexCounter = 1;
         NextAvatar = C1;
 
-        menuScript = FindObjectOfType<Menu1>();
         if (menuScript != null)
         {
             index = menuScript.IndexCounter1;

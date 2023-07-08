@@ -36,7 +36,7 @@ public class GameEndUIManager : MonoBehaviour
         legionaerCount++;
 
         // Win Condition
-        if (legionaerCount >= 10)
+        if (legionaerCount >= 1)
         {
             EndGame();
         }
@@ -50,6 +50,7 @@ public class GameEndUIManager : MonoBehaviour
 
     private void ActivateGameEndPanel()
     {
+        FindObjectOfType<AudioManager>().Stop("Theme");
         FindObjectOfType<AudioManager>().Play("Win");
         gameEndPanel.SetActive(true);
         winText.gameObject.SetActive(true);

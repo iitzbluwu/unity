@@ -67,6 +67,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         FindObjectOfType<AudioManager>().Stop("Publikum_Background");
+        FindObjectOfType<AudioManager>().Stop("Publikum_Start");
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         pauseText.gameObject.SetActive(true);
@@ -75,8 +76,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMainMenu()
     {
-        FindObjectOfType<AudioManager>().Stop("Publikum_Background");
-        FindObjectOfType<AudioManager>().Stop("Theme");
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MEMEZ");
     }

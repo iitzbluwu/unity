@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    int index = 0;
+    public int index = 0;
 
     void Awake()
     {
@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Game" && index == 0)
         {
-            index++;
+            index = 1;
             Play("Theme");
             Play("Publikum_Background");
             Play("Publikum_Start");

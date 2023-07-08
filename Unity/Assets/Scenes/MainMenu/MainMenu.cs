@@ -11,8 +11,17 @@ public class MainMenu : MonoBehaviour
 
     private GameObject selectedButton; // Der aktuell ausgewählte Button
 
+    private AudioManager audioManager;
+
     private void Start()
     {
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
+        audioManager.index = 0;
+        FindObjectOfType<AudioManager>().Stop("Publikum_Background");
+        FindObjectOfType<AudioManager>().Stop("Theme");
+        FindObjectOfType<AudioManager>().Stop("Publikum_Start");
+        FindObjectOfType<AudioManager>().Stop("Win");
+        FindObjectOfType<AudioManager>().Stop("Publikum");
         SelectButton(playButton); // Am Anfang wird der Play-Button ausgewählt
     }
 

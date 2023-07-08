@@ -12,8 +12,11 @@ public class Win_Lose : MonoBehaviour
 
     private Button selectedButton;
 
+    private AudioManager audioManager;
+
     private void Start()
     {
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         deathScreenPanel.SetActive(false);
         mainMenuButton.onClick.AddListener(ReturnToMainMenu);
         retryButton.onClick.AddListener(RetryLevel);
@@ -25,6 +28,8 @@ public class Win_Lose : MonoBehaviour
     {
         if (deathScreenPanel.activeSelf)
         {
+            FindObjectOfType<AudioManager>().Stop("Theme");
+            FindObjectOfType<AudioManager>().Stop("Publikum_Background");
             if (Input.GetKeyDown(KeyCode.D))
             {
                 if (selectedButton != mainMenuButton)
@@ -57,6 +62,7 @@ public class Win_Lose : MonoBehaviour
 
     public void RetryLevel()
     {
+        FindObjectOfType<AudioManager>().Play("Theme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &343918631550660908
+--- !u!1 &5187280672341692459
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 343918631550660910}
-  - component: {fileID: 343918631550660911}
+  - component: {fileID: 5187280672341692461}
+  - component: {fileID: 5187280672341692460}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &343918631550660910
+--- !u!4 &5187280672341692461
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343918631550660908}
+  m_GameObject: {fileID: 5187280672341692459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &343918631550660911
+--- !u!114 &5187280672341692460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343918631550660908}
+  m_GameObject: {fileID: 5187280672341692459}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fee71098b5123445a4fbc98282bab53, type: 3}
@@ -46,20 +46,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: SwordSwoosh
-    clip: {fileID: 8300000, guid: 136eb152ecb11dc4ea4199bb63b3332d, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: EnemyHit
-    clip: {fileID: 8300000, guid: 8645563f6e0337f499455cde4d7e4519, type: 3}
+    clip: {fileID: 8300000, guid: c62b661f2102b514a9878d3474d17b1e, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 5a1c086858d3d134b8ce1d629fe12438, type: 3}
-    volume: 0.3
+    volume: 0.2
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 4e4be10291c39ab49943eb6ac9ae0d6e, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit1
+    clip: {fileID: 8300000, guid: ae24b4bb0a8b3bc46a2d0b7c2462c2c5, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit2
+    clip: {fileID: 8300000, guid: 5b6b63a3515300642822d1d262c836a6, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit3
+    clip: {fileID: 8300000, guid: 09f733aa81fe0714683679c21d228f7d, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: d96fd934d97217d4b87828e8da36a439, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: d96fd934d97217d4b87828e8da36a439, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 4e4be10291c39ab49943eb6ac9ae0d6e, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 1720472f6ff23124aa4bf0ebd30ad13e, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BlockOn
+    clip: {fileID: 8300000, guid: c84114db7b2ffd94da3fcab4eb085344, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BlockOff
+    clip: {fileID: 8300000, guid: 053173525bbce1c47a8e89e8924ead1b, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BlockHit
+    clip: {fileID: 8300000, guid: a8d7ca211a64b2a44b83db9326417513, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Publikum
+    clip: {fileID: 8300000, guid: 36c9ac7886b33f3458911c4021f64d09, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

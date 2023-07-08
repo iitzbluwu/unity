@@ -40,6 +40,8 @@ public class AudioManager : MonoBehaviour
         {
             index++;
             Play("Theme");
+            Play("Publikum_Background");
+            Play("Publikum_Start");
         }  
     }
 

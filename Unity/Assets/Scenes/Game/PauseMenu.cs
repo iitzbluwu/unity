@@ -25,7 +25,10 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !Death.activeSelf && !Win.activeSelf)
         { 
             if (pauseMenuUI.activeSelf)
+            {
+                FindObjectOfType<AudioManager>().Play("Publikum_Background");
                 Resume();
+            }
             else
                 Pause();
         }
@@ -63,6 +66,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        FindObjectOfType<AudioManager>().Stop("Publikum_Background");
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         pauseText.gameObject.SetActive(true);
@@ -71,6 +75,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMainMenu()
     {
+        FindObjectOfType<AudioManager>().Stop("Publikum_Background");
+        FindObjectOfType<AudioManager>().Stop("Theme");
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MEMEZ");
     }

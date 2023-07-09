@@ -7,7 +7,8 @@ public class TriviaWindow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            Destroy(gameObject);
         }
     }
     public void CloseTriviaWindow()

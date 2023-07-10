@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 1
-  approachDistance: 0
+  approachDistance: 1
   aniRat: {fileID: 1698235990967484077}
   isAlive: 1
 --- !u!95 &1698235990967484077
@@ -158,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 1698235990967484075}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6a7d6a2937dfa649ba67442f818e032, type: 2}
+  m_Controller: {fileID: 9100000, guid: 95e96346381f82044bb1a5b81e3663b6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

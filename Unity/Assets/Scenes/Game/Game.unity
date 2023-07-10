@@ -3065,67 +3065,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &894578378
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 368922992779637826, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_Name
-      value: Greif
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 664358378172386157, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796222869503909457, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-      propertyPath: approachDistance
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
 --- !u!1 &984144276
 GameObject:
   m_ObjectHideFlags: 0
@@ -4406,32 +4345,39 @@ MonoBehaviour:
   ratPrefab: {fileID: 3809565354473322842, guid: 1560d07dfb69a034fab8aca8c875f24c, type: 3}
   legionaerPrefab: {fileID: 8709065243373048196, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
   greifPrefab: {fileID: 368922992779637826, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
+  loewePrefab: {fileID: 0}
   spawnInterval: 5
   spawnIntervals:
   - duration: 20
-    ratSpawnProbability: 1
+    ratSpawnProbability: 0
     legionaerSpawnProbability: 0
     greifSpawnProbability: 0
+    loeweSpawnProbability: 1
   - duration: 40
     ratSpawnProbability: 0.8
     legionaerSpawnProbability: 0.2
     greifSpawnProbability: 0
+    loeweSpawnProbability: 0
   - duration: 60
     ratSpawnProbability: 0.5
     legionaerSpawnProbability: 0.5
     greifSpawnProbability: 0
+    loeweSpawnProbability: 0
   - duration: 80
     ratSpawnProbability: 0.2
     legionaerSpawnProbability: 0.8
     greifSpawnProbability: 0
+    loeweSpawnProbability: 0
   - duration: 84
     ratSpawnProbability: 0
     legionaerSpawnProbability: 0
     greifSpawnProbability: 1
+    loeweSpawnProbability: 0
   - duration: 100
     ratSpawnProbability: 0.2
     legionaerSpawnProbability: 0.75
     greifSpawnProbability: 0.05
+    loeweSpawnProbability: 0
 --- !u!4 &1464604014
 Transform:
   m_ObjectHideFlags: 0

@@ -7,13 +7,14 @@ public class EnemySpawner : MonoBehaviour
     public GameObject ratPrefab; // Rat Prefab
     public GameObject legionaerPrefab; // Legionaer Prefab
     public GameObject greifPrefab; // Greif Prefab
+    public GameObject loewePrefab; // Loewe Prefab
     public float spawnInterval = 5f;
-    //public float spawnY = 0f; // Y-Position of the spawn point
 
     private float elapsedTime = 0f; // Total elapsed time
     private int ratCount = 0; // Number of spawned rat enemies
     private int legionaerCount = 0; // Number of spawned legionaer enemies
     private int greifCount = 0; // Number of spawned greif enemies
+    private int loeweCount = 0; // Number of spawned loewe enemies
 
     // Define time intervals and their corresponding spawn probabilities
     public SpawnInterval[] spawnIntervals;
@@ -25,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
         [Range(0f, 1f)] public float ratSpawnProbability; // Probability of spawning a rat enemy
         [Range(0f, 1f)] public float legionaerSpawnProbability; // Probability of spawning a legionaer enemy
         [Range(0f, 1f)] public float greifSpawnProbability; // Probability of spawning a greif enemy
+        [Range(0f, 1f)] public float loeweSpawnProbability; // Probability of spawning a loewe enemy
     }
 
     private void Start()
@@ -45,6 +47,7 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log($"Rat Spawn Probability: {currentInterval.ratSpawnProbability * 100}%");
         Debug.Log($"Legionaer Spawn Probability: {currentInterval.legionaerSpawnProbability * 100}%");
         Debug.Log($"Greif Spawn Probability: {currentInterval.greifSpawnProbability * 100}%");
+        Debug.Log($"Loewe Spawn Probability: {currentInterval.loeweSpawnProbability * 100}%");
     }
 
     private void SpawnEnemy()
@@ -65,6 +68,10 @@ public class EnemySpawner : MonoBehaviour
         else if (randomValue < currentInterval.ratSpawnProbability + currentInterval.legionaerSpawnProbability + currentInterval.greifSpawnProbability)
         {
             selectedEnemyPrefab = greifPrefab;
+        }
+        else if (randomValue < currentInterval.ratSpawnProbability + currentInterval.legionaerSpawnProbability + currentInterval.greifSpawnProbability + currentInterval.loeweSpawnProbability)
+        {
+            selectedEnemyPrefab = loewePrefab;
         }
         else
         {
@@ -113,6 +120,10 @@ public class EnemySpawner : MonoBehaviour
         {
             greifCount++;
         }
+        else if (selectedEnemyPrefab == loewePrefab)
+        {
+            loeweCount++;
+        }
 
         Enemy enemyComponent = enemy.GetComponent<Enemy>();
         enemyComponent.ratAnimator = enemy.GetComponent<Animator>();
@@ -122,7 +133,6 @@ public class EnemySpawner : MonoBehaviour
         //greifComponent.greifAnimator = enemy.GetComponent<Animator>();
         //greifComponent.greifAI = enemy.GetComponent<GreifAI>();
     }
-
 
     private SpawnInterval GetSpawnInterval()
     {

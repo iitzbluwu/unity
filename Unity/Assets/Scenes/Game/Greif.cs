@@ -58,8 +58,7 @@ public class Greif : MonoBehaviour
         currentHealth -= damage;
         
         if (currentHealth > 0)
-        {
-            Greif_Ani.Play("Greif_hurt");          
+        {        
             Greif_Ani.SetTrigger("hurt");
         }
 

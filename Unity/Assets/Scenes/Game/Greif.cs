@@ -63,7 +63,7 @@ public class Greif : MonoBehaviour
             Greif_Ani.Play("Loewe_Death");
             Greif_Ani.Play("Greif_death");
             isDead = true; // Set the Greif as dead
-            Invoke("Die", 3.0f);
+            Invoke("Die", 4.0f);
         }
     }
 

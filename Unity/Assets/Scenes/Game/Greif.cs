@@ -46,12 +46,13 @@ public class Greif : MonoBehaviour
         {
             return; // Exit early if the Greif is already dead
         }
-        
+
         Debug.Log("Schaden am Greif!");
         currentHealth -= damage;
+        
         if (currentHealth > 0)
         {
-            Greif_Ani.SetTrigger("hurt");
+            Greif_Ani.Play("Greif_hurt");          
         }
 
         if (currentHealth <= 0)
@@ -63,7 +64,7 @@ public class Greif : MonoBehaviour
             Greif_Ani.Play("Loewe_Death");
             Greif_Ani.Play("Greif_death");
             isDead = true; // Set the Greif as dead
-            Invoke("Die", 4.0f);
+            Invoke("Die", 3.0f);
         }
     }
 

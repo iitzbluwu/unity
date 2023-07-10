@@ -53,6 +53,7 @@ public class Greif : MonoBehaviour
         if (currentHealth > 0)
         {
             Greif_Ani.Play("Greif_hurt");          
+            Greif_Ani.SetTrigger("hurt");
         }
 
         if (currentHealth <= 0)

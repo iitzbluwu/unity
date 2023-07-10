@@ -52,6 +52,8 @@ public class GameEndUIManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Stop("Theme");
         FindObjectOfType<AudioManager>().Stop("Publikum_Background");
+        FindObjectOfType<AudioManager>().Stop("Publikum");
+        FindObjectOfType<AudioManager>().Stop("Publikum2");
         FindObjectOfType<AudioManager>().Play("Win");
         gameEndPanel.SetActive(true);
         winText.gameObject.SetActive(true);

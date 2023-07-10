@@ -14,6 +14,13 @@ public class Greif : MonoBehaviour
     public EnemyAI enemyAI;
     private Rigidbody2D rb;
 
+    private int randomIndex;
+
+    void Awake()
+    {
+        randomIndex = UnityEngine.Random.Range(0, 2); // Generiere den Zufallsindex
+    }
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -52,14 +59,21 @@ public class Greif : MonoBehaviour
         
         if (currentHealth > 0)
         {
-            Greif_Ani.Play("Greif_hurt");
+            Greif_Ani.Play("Greif_hurt");          
             Greif_Ani.SetTrigger("hurt");
-
         }
 
         if (currentHealth <= 0)
         {
             rb.isKinematic = true;
+            if (randomIndex == 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Publikum");
+            }
+            else if (randomIndex == 1)
+            {
+                FindObjectOfType<AudioManager>().Play("Publikum2");
+            }
             GetComponent<Collider2D>().enabled = false;
             enemyAI.deadge();
             Greif_Ani.SetBool("dead", true);

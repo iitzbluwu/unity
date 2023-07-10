@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             pub = 1;
             FindObjectOfType<AudioManager>().Play("Publikum");
+            FindObjectOfType<AudioManager>().Play("Publikum2");
             PlayerPrefs.SetInt("pub", 1);
             PlayerPrefs.Save();
             rb2d.isKinematic = true;

@@ -4345,39 +4345,44 @@ MonoBehaviour:
   ratPrefab: {fileID: 3809565354473322842, guid: 1560d07dfb69a034fab8aca8c875f24c, type: 3}
   legionaerPrefab: {fileID: 8709065243373048196, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
   greifPrefab: {fileID: 368922992779637826, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
-  loewePrefab: {fileID: 0}
+  loewePrefab: {fileID: 1698235990967484075, guid: b2b3d2d99725f654fb1fa87646f0f2b6, type: 3}
   spawnInterval: 5
   spawnIntervals:
   - duration: 20
-    ratSpawnProbability: 0
+    ratSpawnProbability: 1
     legionaerSpawnProbability: 0
     greifSpawnProbability: 0
-    loeweSpawnProbability: 1
+    loeweSpawnProbability: 0
   - duration: 40
     ratSpawnProbability: 0.8
     legionaerSpawnProbability: 0.2
     greifSpawnProbability: 0
     loeweSpawnProbability: 0
-  - duration: 60
-    ratSpawnProbability: 0.5
-    legionaerSpawnProbability: 0.5
-    greifSpawnProbability: 0
-    loeweSpawnProbability: 0
   - duration: 80
-    ratSpawnProbability: 0.2
-    legionaerSpawnProbability: 0.8
+    ratSpawnProbability: 0.4
+    legionaerSpawnProbability: 0.4
     greifSpawnProbability: 0
-    loeweSpawnProbability: 0
+    loeweSpawnProbability: 0.2
   - duration: 84
     ratSpawnProbability: 0
     legionaerSpawnProbability: 0
-    greifSpawnProbability: 1
-    loeweSpawnProbability: 0
-  - duration: 100
+    greifSpawnProbability: 0
+    loeweSpawnProbability: 1
+  - duration: 120
+    ratSpawnProbability: 0.3
+    legionaerSpawnProbability: 0.5
+    greifSpawnProbability: 0
+    loeweSpawnProbability: 0.2
+  - duration: 124
+    ratSpawnProbability: 0
+    legionaerSpawnProbability: 0
+    greifSpawnProbability: 0
+    loeweSpawnProbability: 1
+  - duration: 160
     ratSpawnProbability: 0.2
-    legionaerSpawnProbability: 0.75
-    greifSpawnProbability: 0.05
-    loeweSpawnProbability: 0
+    legionaerSpawnProbability: 0.5
+    greifSpawnProbability: 0.3
+    loeweSpawnProbability: 1
 --- !u!4 &1464604014
 Transform:
   m_ObjectHideFlags: 0

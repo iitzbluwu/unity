@@ -130,6 +130,7 @@ MonoBehaviour:
   maxHealth: 3
   ratAnimator: {fileID: 256532845984349896}
   enemyAI: {fileID: 0}
+  pub: 0
   attackDelay: 3
   damageAmount: 1
   attackRange: 1.75
@@ -191,4 +192,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

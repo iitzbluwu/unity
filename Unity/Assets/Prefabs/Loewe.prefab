@@ -129,6 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 6
   damageAmount: 1
+  Greif_Ani: {fileID: 0}
+  enemyAI: {fileID: 0}
 --- !u!114 &1698235990967484078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,4 +189,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

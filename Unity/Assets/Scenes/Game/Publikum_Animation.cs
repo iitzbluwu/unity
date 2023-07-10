@@ -16,6 +16,8 @@ public class Publikum_Animation : MonoBehaviour
         if(PlayerPrefs.GetInt("pub")==1)
         {
             Ani_Publikum.SetTrigger("jubel");
+            PlayerPrefs.SetInt("pub", 0);
+            PlayerPrefs.Save();
         }
     }
 }

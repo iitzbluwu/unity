@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
         enemyAI = GetComponent<EnemyAI>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform; // Spielerreferenz finden
+        PlayerPrefs.SetInt("pub", 0);
+        PlayerPrefs.Save();
     }
 
     void Update()
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour
             //legionaerAnimator.SetTrigger("isDED");
             Invoke("Die", 2.0f);
 
+
             if (OnLegionaerDeath != null && gameObject.CompareTag("Legionaer")) // Check if this is a legionaer enemy
             {
                 OnLegionaerDeath.Invoke(); // Trigger legionaer death event
@@ -82,9 +85,6 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Ded!");
-        pub = 0;
-        PlayerPrefs.SetInt("pub", 0);
-        PlayerPrefs.Save();
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;

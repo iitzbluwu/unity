@@ -4366,8 +4366,8 @@ MonoBehaviour:
   - duration: 84
     ratSpawnProbability: 0
     legionaerSpawnProbability: 0
-    greifSpawnProbability: 0
-    loeweSpawnProbability: 1
+    greifSpawnProbability: 1
+    loeweSpawnProbability: 0
   - duration: 120
     ratSpawnProbability: 0.3
     legionaerSpawnProbability: 0.5

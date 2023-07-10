@@ -22,6 +22,13 @@ public class Enemy : MonoBehaviour
 
     private PlayerBlock playerBlock;
 
+    private int randomIndex;
+
+    void Awake()
+    {
+        randomIndex = UnityEngine.Random.Range(0, 2); // Generiere den Zufallsindex
+    }
+
     void Start()
     {
         playerBlock = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBlock>();
@@ -56,8 +63,14 @@ public class Enemy : MonoBehaviour
             isAlive = false; // Setze den Lebensstatus des Gegners auf tot
             GetComponent<Collider2D>().enabled = false;
             pub = 1;
-            FindObjectOfType<AudioManager>().Play("Publikum");
-            FindObjectOfType<AudioManager>().Play("Publikum2");
+            if (randomIndex == 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Publikum");
+            }
+            else if (randomIndex == 1)
+            {
+                FindObjectOfType<AudioManager>().Play("Publikum2");
+            }
             PlayerPrefs.SetInt("pub", 1);
             PlayerPrefs.Save();
             rb2d.isKinematic = true;

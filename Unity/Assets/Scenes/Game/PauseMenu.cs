@@ -68,6 +68,8 @@ public class PauseMenu : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Stop("Publikum_Background");
         FindObjectOfType<AudioManager>().Stop("Publikum_Start");
+        FindObjectOfType<AudioManager>().Stop("Publikum");
+        FindObjectOfType<AudioManager>().Stop("Publikum2");
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         pauseText.gameObject.SetActive(true);

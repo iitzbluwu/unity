@@ -60,6 +60,7 @@ public class Greif : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             enemyAI.deadge();
             Greif_Ani.SetBool("dead", true);
+            Greif_Ani.Play("Loewe_Death");
             Greif_Ani.Play("Greif_death");
             isDead = true; // Set the Greif as dead
             Invoke("Die", 3.0f);

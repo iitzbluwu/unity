@@ -46,6 +46,8 @@ public class Menu : MonoBehaviour
         {
             index = menuScript.IndexCounter1;
         }
+        PlayerPrefs.SetInt("Multiplayer", 0);
+        PlayerPrefs.Save();
     }
 
     // Update is called once per frame
@@ -157,6 +159,8 @@ public class Menu : MonoBehaviour
         {
             cursor2.SetActive(true);
             P2.SetActive(true);
+            PlayerPrefs.SetInt("Multiplayer", 1);
+            PlayerPrefs.Save();
         }
            /* if (Input.GetKeyDown(KeyCode.RightArrow) && IndexCounter > 0 && IndexCounter < 10)
             {

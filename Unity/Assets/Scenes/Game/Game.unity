@@ -4569,14 +4569,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ratPrefab: {fileID: 3809565354473322842, guid: 1560d07dfb69a034fab8aca8c875f24c, type: 3}
   legionaerPrefab: {fileID: 8709065243373048196, guid: 6c13126044f905342a6fb7790e959d30, type: 3}
-  greifPrefab: {fileID: 1383098124862242893, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
+  greifPrefab: {fileID: 979317365682322905, guid: 0f08d7fba67d15f4a8c4938948eac732, type: 3}
   loewePrefab: {fileID: 1698235990967484075, guid: b2b3d2d99725f654fb1fa87646f0f2b6, type: 3}
   spawnInterval: 5
   spawnIntervals:
   - duration: 20
-    ratSpawnProbability: 1
+    ratSpawnProbability: 0
     legionaerSpawnProbability: 0
-    greifSpawnProbability: 0
+    greifSpawnProbability: 1
     loeweSpawnProbability: 0
   - duration: 40
     ratSpawnProbability: 0.8
@@ -6330,7 +6330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781919979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.5, y: 0, z: 0}
+  m_LocalPosition: {x: 16.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

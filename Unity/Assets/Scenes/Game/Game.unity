@@ -304,12 +304,12 @@ GameObject:
   - component: {fileID: 82863005}
   - component: {fileID: 82863004}
   - component: {fileID: 82863003}
+  - component: {fileID: 82863007}
   - component: {fileID: 82863002}
   - component: {fileID: 82863001}
   - component: {fileID: 82863000}
   - component: {fileID: 82862999}
   - component: {fileID: 82862998}
-  - component: {fileID: 82862997}
   m_Layer: 0
   m_Name: Player (2)
   m_TagString: Player
@@ -317,22 +317,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &82862997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82862996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 544ba24df868ec74f9ddb868ee9b1135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockKey: 115
-  blockDuration: 60
-  blockEffectPrefab: {fileID: 0}
-  block_Ani: {fileID: 82863000}
 --- !u!114 &82862998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +519,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82863007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82862996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabea9493bfbd9f43836e888bc6b0e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockKey: 274
+  blockDuration: 1
+  blockEffectPrefab: {fileID: 0}
+  block_Ani: {fileID: 0}
 --- !u!1 &114120323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2894,9 +2894,9 @@ GameObject:
   - component: {fileID: 690775748}
   - component: {fileID: 690775747}
   - component: {fileID: 690775746}
+  - component: {fileID: 690775754}
   - component: {fileID: 690775745}
   - component: {fileID: 690775744}
-  - component: {fileID: 690775743}
   - component: {fileID: 690775753}
   m_Layer: 0
   m_Name: Player (3)
@@ -2905,22 +2905,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &690775743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690775742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 544ba24df868ec74f9ddb868ee9b1135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockKey: 115
-  blockDuration: 60
-  blockEffectPrefab: {fileID: 0}
-  block_Ani: {fileID: 690775746}
 --- !u!114 &690775744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3139,6 +3123,22 @@ MonoBehaviour:
   animator: {fileID: 690775746}
   leftKey: 276
   rightKey: 275
+--- !u!114 &690775754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690775742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabea9493bfbd9f43836e888bc6b0e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockKey: 274
+  blockDuration: 1
+  blockEffectPrefab: {fileID: 0}
+  block_Ani: {fileID: 0}
 --- !u!1 &707324005
 GameObject:
   m_ObjectHideFlags: 0

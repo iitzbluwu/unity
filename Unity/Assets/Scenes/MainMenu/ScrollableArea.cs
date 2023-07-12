@@ -21,7 +21,6 @@ public class ScrollableArea : MonoBehaviour
     {
         RectTransform contentTransform = scrollRect.content;
         contentTransform.sizeDelta = new Vector2(contentTransform.sizeDelta.x, textContent.preferredHeight);
-        maxScrollPosition = contentTransform.sizeDelta.y - scrollRect.viewport.rect.height;
     }
 
     void Update()
@@ -29,7 +28,7 @@ public class ScrollableArea : MonoBehaviour
         isScrollingUp = Input.GetKey(KeyCode.UpArrow);
         isScrollingDown = Input.GetKey(KeyCode.DownArrow);
 
-        if (isScrollingUp && scrollRect.content.anchoredPosition.y < maxScrollPosition)
+        if (isScrollingUp)
         {
             ScrollUp();
         }
@@ -42,8 +41,16 @@ public class ScrollableArea : MonoBehaviour
     void ScrollUp()
     {
         float scrollAmount = scrollSpeed * Time.deltaTime;
-        scrollRect.content.anchoredPosition += new Vector2(0, scrollAmount);
-        scrollRect.content.anchoredPosition = new Vector2(0, Mathf.Clamp(scrollRect.content.anchoredPosition.y, 0, maxScrollPosition));
+        Vector2 newPosition = scrollRect.content.anchoredPosition + new Vector2(0, scrollAmount);
+
+        if (newPosition.y < maxScrollPosition)
+        {
+            scrollRect.content.anchoredPosition = newPosition;
+        }
+        else
+        {
+            scrollRect.content.anchoredPosition = new Vector2(scrollRect.content.anchoredPosition.x, maxScrollPosition);
+        }
     }
 
     void ScrollDown()

@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public Animator aniRat;
     //public Animator aniLegionaer;
     public bool isAlive = true;
+    private bool isMovementEnabled = true;
 
     private Rigidbody2D rb;
     private EnemyAI[] allEnemies; // Array to store references to all enemies
@@ -30,7 +31,7 @@ public class EnemyAI : MonoBehaviour
 
     void AI()
     {
-        if (!isAlive)
+        if (!isAlive || !isMovementEnabled)
         {
             return;
         }
@@ -46,8 +47,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (enemy != null && enemy != this && enemy.isAlive && Vector2.Distance(transform.position, enemy.transform.position) < approachDistance)
                     {
-                        aniRat.SetBool("laufen", false);
-                        rb.velocity = Vector2.zero;
+                        StopMovement();
                         return; // Stop moving if any enemy is too close
                     }
                 }
@@ -59,18 +59,38 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
-                aniRat.SetBool("laufen", false);
-                //aniLegionaer.SetBool("laufen", false);
-                rb.velocity = Vector2.zero;
+                StopMovement();
             }
         }
     }
 
+    void StopMovement()
+    {
+        aniRat.SetBool("laufen", false);
+        //aniLegionaer.SetBool("laufen", false);
+        rb.velocity = Vector2.zero;
+    }
+
+    public void StopMovementDuringAttack()
+    {
+        StopMovement();
+        rb.isKinematic = true; // Freeze enemy's position during attack
+    }
+
+    public void DisableMovementDuringAttack()
+    {
+        StopMovement();
+        isMovementEnabled = false;
+    }
+
+    public void EnableMovementAfterAttack()
+    {
+        isMovementEnabled = true;
+    }
 
     public void deadge()
     {
-        rb.velocity = Vector2.zero;
-        aniRat.SetBool("laufen", false);
+        StopMovement();
         isAlive = false;
     }
 }

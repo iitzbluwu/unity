@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
         if (canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             canAttack = false;
+            enemyAI.StopMovementDuringAttack();
             Invoke("DealDamageToPlayer", attackDelay);
         }
     }
@@ -90,11 +92,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void AttackDelay()
-    {
-        canAttack = true;
-    }
-
     void Die()
     {
         Debug.Log("Enemy Ded!");
@@ -123,7 +120,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
     void DealDamageToPlayer()
     {
         if (!isAlive) return;
@@ -131,13 +127,47 @@ public class Enemy : MonoBehaviour
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (player != null)
         {
-            
-            ratAnimator.SetTrigger("Attack");
-            Invoke("InflictDamageToPlayer", 0.4585f); // Delay the damage by 0.4585 seconds
+            if (Vector2.Distance(transform.position, player.transform.position) <= attackRange)
+            {
+                rb2d.velocity = Vector2.zero; // Stoppe das Movement der Ratte für 2 Sekunden
+                ratAnimator.SetTrigger("Attack");
+                ratAnimator.SetBool("laufen", false);
+                enemyAI.DisableMovementDuringAttack(); // Deaktiviere die Bewegung während des Angriffs
+                StartCoroutine(InflictDamageToPlayerAfterDelay(0.4585f)); // Verzögere den Schaden um 0.4585 Sekunden
+            }
+            else
+            {
+                AttackDelay();
+            }
+        }
+    }
+
+    IEnumerator InflictDamageToPlayerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (player != null)
+        {
+            player.TakeDamage(damageAmount);
+        }
+        if (playerBlock.IsBlocking)
+        {
+            FindObjectOfType<AudioManager>().Play("BlockHit");
         }
 
-        Invoke("AttackDelay", attackDelay);
-        
+        enemyAI.EnableMovementAfterAttack(); // Aktiviere die Bewegung nach dem Angriff
+        AttackDelay();
+    }
+
+    void AttackDelay()
+    {
+        canAttack = true;
+    }
+    
+    void DisableMovementDuringAttack()
+    {
+        enemyAI.DisableMovementDuringAttack();
     }
 
     void InflictDamageToPlayer()

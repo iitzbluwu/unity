@@ -15,12 +15,18 @@ public class ScrollableArea : MonoBehaviour
     void Start()
     {
         AdjustContentSize();
+        ResetScrollPosition();
     }
 
     void AdjustContentSize()
     {
         RectTransform contentTransform = scrollRect.content;
         contentTransform.sizeDelta = new Vector2(contentTransform.sizeDelta.x, textContent.preferredHeight);
+    }
+
+    void ResetScrollPosition()
+    {
+        scrollRect.content.anchoredPosition = new Vector2(scrollRect.content.anchoredPosition.x, maxScrollPosition);
     }
 
     void Update()
@@ -30,11 +36,11 @@ public class ScrollableArea : MonoBehaviour
 
         if (isScrollingUp)
         {
-            ScrollUp();
+            ScrollDown();
         }
         else if (isScrollingDown)
         {
-            ScrollDown();
+            ScrollUp();
         }
     }
 
@@ -43,7 +49,7 @@ public class ScrollableArea : MonoBehaviour
         float scrollAmount = scrollSpeed * Time.deltaTime;
         Vector2 newPosition = scrollRect.content.anchoredPosition + new Vector2(0, scrollAmount);
 
-        if (newPosition.y < maxScrollPosition)
+        if (newPosition.y > maxScrollPosition)
         {
             scrollRect.content.anchoredPosition = newPosition;
         }

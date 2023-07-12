@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1849378beeaf66247a0b68a5da9d44f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 026fa01f0dd52d6479ba3628102839ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -142,28 +142,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Maximus the Gladiator is a formidable warrior in this epic 2D beat ''em
-    up video game. Armed with a mighty sword and an unyielding shield, he unleashes
-    devastating attacks upon his foes. With his swift and precise strikes, Maximus
-    can execute a single, powerful attack that leaves his enemies reeling. However,
-    he truly shines when he unleashes a flurry of consecutive strikes, executing
-    a swift and deadly combo consisting of three devastating hits.
+  m_text: 'Meet Senatorius the Entitled, an unexpectedly thrown into the arena of
+    this gripping 2D beat ''em up video game due to his reckless financial misfortunes.
+    This once privileged senator finds himself armed with a pompous attitude, accompanied
+    by a small, mischievous dog. Together, they create an unconventional and unpredictable
+    force.
 
 
 
-    Maximus''s
-    unwavering defense is also a sight to behold. With his trusty shield, he can
-    expertly block incoming attacks, negating the enemy''s assault and turning it
-    into an opportunity to strike back. His mastery of swordplay and shield techniques
-    makes him an indomitable force on the battlefield.
+    While lacking traditional weaponry, Senatorius employs an audacious
+    strategy. His loyal companion, the small dog, possesses a rather peculiar talent.
+    With a mischievous nature, the dog fearlessly urinates on opponents, disorienting
+    them and leaving them vulnerable to Senatorius''s unorthodox attacks. The high-pitched
+    barks of the dog are equally unsettling, often intimidating adversaries and sowing
+    confusion among their ranks.
 
 
 
-    Engage in thrilling
-    battles and guide Maximus through a legendary quest, showcasing his unmatched
-    skill with the sword and shield. Will you harness his full potential and lead
-    him to victory, or will your enemies overcome this mighty gladiator? The choice
-    is yours in this action-packed adventure.'
+    Despite his initial lack of combat training,
+    Senatorius has learned to adapt. He relies on his cunning and resourcefulness,
+    utilizing the chaos caused by his canine companion to exploit weaknesses and
+    strike opportunistically. His unorthodox fighting style has surprised many opponents,
+    proving that even the most seemingly pampered individuals can rise to the occasion
+    when pushed to their limits.
+
+
+
+    Embark on an extraordinary journey with Senatorius
+    and his four-legged ally, as they navigate the treacherous arena filled with
+    battle-hardened opponents. Will their unusual tactics be enough to overcome the
+    odds, or will they fall victim to their own extravagance? Take control and decide
+    the fate of Senatorius the Entitled in this thrilling, unexpected adventure.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -462,7 +471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8, y: -8}
+  m_AnchoredPosition: {x: 269.22, y: -8}
   m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7171895502470798480
@@ -524,11 +533,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2206,7 +2215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gladiator
+  m_text: Senator
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}

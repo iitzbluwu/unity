@@ -58,6 +58,7 @@ public class Boss : MonoBehaviour
             Player player = playerCollider.GetComponent<Player>();
             if (player != null)
             {
+                bossAnimator.SetTrigger("Attack");
                 player.TakeDamage(damageAmount);
             }
         }

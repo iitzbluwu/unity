@@ -59,7 +59,7 @@ public class Boss : MonoBehaviour
             if (player != null)
             {
                 bossAnimator.SetTrigger("Attack");
-                player.TakeDamage(damageAmount);
+                Invoke("ApplyDamageToPlayer", 0.8f); // Verzögert den Aufruf der Methode "ApplyDamageToPlayer" um 0,8 Sekunden
             }
         }
     }
@@ -116,5 +116,13 @@ public class Boss : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false; // Deaktiviert das Boss-Skript
         Destroy(gameObject); // Zerstört das Boss-Objekt
+    }
+    void ApplyDamageToPlayer()
+    {
+        Player player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.TakeDamage(damageAmount);
+        }
     }
 }

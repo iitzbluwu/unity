@@ -16,6 +16,7 @@ public class Jetztaber : MonoBehaviour
         if (PlayerPrefs.GetInt("Stage1")==1)
         {
             BG1.SetActive(true);
+            BG2.SetActive(false);
         }
         else
         {

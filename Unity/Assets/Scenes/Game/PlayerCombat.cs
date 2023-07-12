@@ -150,6 +150,12 @@ public class PlayerCombat : MonoBehaviour
                 greif.TakeDamage(attackDamage);
                 FindObjectOfType<AudioManager>().Play("EnemyHit1");
             }
+            Boss boss = enemy.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(attackDamage);
+                FindObjectOfType<AudioManager>().Play("EnemyHit1");
+            }
 
             Debug.Log("Hit " + enemy.name);
         }
@@ -186,6 +192,12 @@ public class PlayerCombat : MonoBehaviour
                 greif.TakeDamage(attackDamage);
                 FindObjectOfType<AudioManager>().Play("EnemyHit2");
             }
+            Boss boss = enemy.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(attackDamage);
+                FindObjectOfType<AudioManager>().Play("EnemyHit2");
+            }
 
             Debug.Log("Hit " + enemy.name);
         }
@@ -219,6 +231,12 @@ public class PlayerCombat : MonoBehaviour
             if (greif != null)
             {
                 greif.TakeDamage(attackDamage);
+                FindObjectOfType<AudioManager>().Play("EnemyHit3");
+            }
+            Boss boss = enemy.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(attackDamage);
                 FindObjectOfType<AudioManager>().Play("EnemyHit3");
             }
 

@@ -37,6 +37,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(currentHealth);
         if (!isDead)
         {
             currentCooldown += Time.deltaTime;
@@ -59,6 +60,7 @@ public class Boss : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damageAmount);
+                Debug.Log("SCHADEN");
             }
         }
     }

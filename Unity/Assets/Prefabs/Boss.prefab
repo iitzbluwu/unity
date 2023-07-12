@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 8
   damageAmount: 1
-  bossAnimator: {fileID: 8928123686172392371}
+  bossAnimator: {fileID: 8100280765692059539}
   enemyAI: {fileID: 0}
   attackPoint: {fileID: 8100280763954432410}
   attackRadius: 0.6

@@ -94,7 +94,13 @@ public class EnemySpawner : MonoBehaviour
         float spawnX;
         float spawnY;
 
-        if (selectedEnemyPrefab == greifPrefab)
+        if (selectedEnemyPrefab == bossPrefab)
+        {
+            spawnOnLeft = false; // Spawn the boss on the right side
+            spawnX = 15f;
+            spawnY = -1f;
+        }
+        else if (selectedEnemyPrefab == greifPrefab)
         {
             spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for Greif enemies
             spawnX = spawnOnLeft ? -15f : 15f;

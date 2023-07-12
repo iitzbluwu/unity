@@ -85,8 +85,9 @@ public class EnemySpawner : MonoBehaviour
         float spawnY;
         if (selectedEnemyPrefab == greifPrefab)
         {
-            spawnX = spawnOnLeft ? -13f : 13f;
-            spawnY = 5f;
+            //if spawns -15f | move collision to -0.1
+            spawnX = spawnOnLeft ? -15f : 15f;
+            spawnY = 2.6f;
         }
         else
         {
@@ -132,6 +133,13 @@ public class EnemySpawner : MonoBehaviour
         //Greif greifComponent = enemy.GetComponent<Greif>();
         //greifComponent.greifAnimator = enemy.GetComponent<Animator>();
         //greifComponent.greifAI = enemy.GetComponent<GreifAI>();
+
+        if (selectedEnemyPrefab == greifPrefab)
+        {
+            // Verschiebe die Kollisionsbox des Greif-Enemies um -0.2 auf der X-Achse nach rechts
+            BoxCollider2D collider = enemy.GetComponent<BoxCollider2D>();
+            collider.offset = new Vector2(collider.offset.x - 0.2f, collider.offset.y);
+        }
     }
 
     private SpawnInterval GetSpawnInterval()

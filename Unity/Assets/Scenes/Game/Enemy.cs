@@ -131,6 +131,7 @@ public class Enemy : MonoBehaviour
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (player != null)
         {
+            
             ratAnimator.SetTrigger("Attack");
             Invoke("InflictDamageToPlayer", 0.4585f); // Delay the damage by 0.4585 seconds
         }

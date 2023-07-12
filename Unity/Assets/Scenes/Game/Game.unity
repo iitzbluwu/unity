@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 82863000}
   - component: {fileID: 82862999}
   - component: {fileID: 82862998}
+  - component: {fileID: 82863008}
   m_Layer: 0
   m_Name: Player (2)
   m_TagString: Player
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82862996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffa45470ffe1f194a85f0abe7e3a0825, type: 3}
   m_Name: 
@@ -535,6 +536,22 @@ MonoBehaviour:
   blockDuration: 1
   blockEffectPrefab: {fileID: 0}
   block_Ani: {fileID: 0}
+--- !u!114 &82863008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82862996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8e21673ceb2e14394ae8a8e92a41b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  animator: {fileID: 82863000}
+  leftKey: 276
+  rightKey: 275
 --- !u!1 &114120323
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +826,6 @@ GameObject:
   - component: {fileID: 140758907}
   - component: {fileID: 140758908}
   - component: {fileID: 140758909}
-  - component: {fileID: 140758910}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1035,22 +1051,6 @@ MonoBehaviour:
   blockDuration: 60
   blockEffectPrefab: {fileID: 0}
   block_Ani: {fileID: 140758906}
---- !u!114 &140758910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140758899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8e21673ceb2e14394ae8a8e92a41b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  animator: {fileID: 0}
-  leftKey: 0
-  rightKey: 0
 --- !u!1 &154329260
 GameObject:
   m_ObjectHideFlags: 0

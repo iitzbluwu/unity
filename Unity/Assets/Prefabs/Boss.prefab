@@ -168,7 +168,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  attackCooldown: 4
+  attackCooldown: 0.5
 --- !u!114 &8100280765692059538
 MonoBehaviour:
   m_ObjectHideFlags: 0

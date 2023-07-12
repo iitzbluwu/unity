@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2e631c3f1e442448407b7a513b509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triviaWindowPrefab: {fileID: 8153865154998754331, guid: 3d4cd616485e7d847ae5d3850ca8bfaf, type: 3}
+  triviaWindowPrefab: {fileID: 7171895502421712257, guid: 3d4cd616485e7d847ae5d3850ca8bfaf, type: 3}
   playButton: {fileID: 671579487}
   triviaButton: {fileID: 573181156}
   quitButton: {fileID: 275777841}

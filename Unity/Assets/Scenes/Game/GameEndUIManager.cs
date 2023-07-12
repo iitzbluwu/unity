@@ -10,7 +10,7 @@ public class GameEndUIManager : MonoBehaviour
     public Button mainMenuButton;
     public Button quitButton;
 
-    private int legionaerCount;
+    private bool bossDefeated = false;
     private float sceneStartTime;
     private Button selectedButton;
 
@@ -22,8 +22,8 @@ public class GameEndUIManager : MonoBehaviour
         mainMenuButton.onClick.AddListener(ReturnToMainMenu);
         quitButton.onClick.AddListener(QuitGame);
 
-        // Register an event for the legionaer's death
-        Enemy.OnLegionaerDeath += HandleLegionaerDeath;
+        // Register an event for the boss's death
+        Boss.OnBossDeath += HandleBossDeath;
 
         // Store the scene start time
         sceneStartTime = Time.time;
@@ -31,15 +31,10 @@ public class GameEndUIManager : MonoBehaviour
         SelectButton(mainMenuButton);
     }
 
-    private void HandleLegionaerDeath()
+    private void HandleBossDeath()
     {
-        legionaerCount++;
-
-        // Win Condition
-        if (legionaerCount >= 10)
-        {
-            EndGame();
-        }
+        bossDefeated = true;
+        EndGame();
     }
 
     private void EndGame()
@@ -133,6 +128,6 @@ public class GameEndUIManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Enemy.OnLegionaerDeath -= HandleLegionaerDeath;
+        Boss.OnBossDeath -= HandleBossDeath;
     }
 }

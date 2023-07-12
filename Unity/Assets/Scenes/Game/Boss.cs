@@ -23,9 +23,12 @@ public class Boss : MonoBehaviour
     public float attackCooldown = 4f;
     private float currentCooldown = 0f;
 
+    // Define the OnBossDeath event
+    public static event Action OnBossDeath;
+
     void Awake()
     {
-        randomIndex = UnityEngine.Random.Range(0, 2); // Generiere den Zufallsindex
+        randomIndex = UnityEngine.Random.Range(0, 2); // Generate the random index
     }
 
     void Start()
@@ -59,7 +62,7 @@ public class Boss : MonoBehaviour
             if (player != null)
             {
                 bossAnimator.SetTrigger("Attack");
-                Invoke("ApplyDamageToPlayer", 0.8f); // Verzögert den Aufruf der Methode "ApplyDamageToPlayer" um 0,8 Sekunden
+                Invoke("ApplyDamageToPlayer", 0.8f); // Delay the invocation of the "ApplyDamageToPlayer" method by 0.8 seconds
             }
         }
     }
@@ -79,7 +82,7 @@ public class Boss : MonoBehaviour
             return; // Exit early if the Boss is already dead
         }
 
-        Debug.Log("Schaden am Boss!");
+        Debug.Log("Damage to Boss!");
         currentHealth -= damage;
 
         if (currentHealth > 0)
@@ -104,19 +107,24 @@ public class Boss : MonoBehaviour
             bossAnimator.Play("Loewe_Death");
             bossAnimator.Play("Greif_death");
             isDead = true; // Set the Boss as dead
+
+            // Trigger the OnBossDeath event
+            OnBossDeath?.Invoke();
+
             Invoke("Die", 3.0f);
         }
     }
 
     void Die()
     {
-        Debug.Log("Boss Ded!");
+        Debug.Log("Boss Dead!");
         //GetComponent<Collider2D>().enabled = false; // Disable the collider first
         isDead = true;
         GetComponent<SpriteRenderer>().enabled = false;
-        this.enabled = false; // Deaktiviert das Boss-Skript
-        Destroy(gameObject); // Zerstört das Boss-Objekt
+        this.enabled = false; // Disable the Boss script
+        Destroy(gameObject); // Destroy the Boss object
     }
+
     void ApplyDamageToPlayer()
     {
         Player player = FindObjectOfType<Player>();

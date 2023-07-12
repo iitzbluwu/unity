@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -8,18 +8,22 @@ public class EnemySpawner : MonoBehaviour
     public GameObject legionaerPrefab; // Legionaer Prefab
     public GameObject greifPrefab; // Greif Prefab
     public GameObject loewePrefab; // Loewe Prefab
+    public GameObject bossPrefab; // Boss Prefab
+
     public float spawnInterval = 5f;
+    public int legionaerCountThreshold = 20;
 
     private float elapsedTime = 0f; // Total elapsed time
     private int ratCount = 0; // Number of spawned rat enemies
     private int legionaerCount = 0; // Number of spawned legionaer enemies
     private int greifCount = 0; // Number of spawned greif enemies
     private int loeweCount = 0; // Number of spawned loewe enemies
+    private bool bossSpawned = false; // Flag to track if the boss has been spawned
 
     // Define time intervals and their corresponding spawn probabilities
     public SpawnInterval[] spawnIntervals;
 
-    [Serializable]
+    [System.Serializable]
     public struct SpawnInterval
     {
         public float duration; // Duration of the interval
@@ -57,7 +61,13 @@ public class EnemySpawner : MonoBehaviour
         // Determine the enemy type based on the spawn probabilities
         GameObject selectedEnemyPrefab;
         float randomValue = Random.value;
-        if (randomValue < currentInterval.ratSpawnProbability)
+
+        if (!bossSpawned && legionaerCount >= legionaerCountThreshold)
+        {
+            selectedEnemyPrefab = bossPrefab;
+            bossSpawned = true;
+        }
+        else if (randomValue < currentInterval.ratSpawnProbability)
         {
             selectedEnemyPrefab = ratPrefab;
         }
@@ -80,12 +90,17 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Determine the spawn position and side
-        bool spawnOnLeft = Random.value < 0.5f;
+        bool spawnOnLeft = !bossSpawned && Random.value < 0.5f;
         float spawnX;
         float spawnY;
-        if (selectedEnemyPrefab == greifPrefab)
+
+        if (bossSpawned && selectedEnemyPrefab != bossPrefab)
         {
-            //if spawns -15f | move collision to -0.1
+            spawnX = spawnOnLeft ? -15f : 15f;
+            spawnY = -1f;
+        }
+        else if (selectedEnemyPrefab == greifPrefab)
+        {
             spawnX = spawnOnLeft ? -15f : 15f;
             spawnY = 2.6f;
         }
@@ -94,6 +109,7 @@ public class EnemySpawner : MonoBehaviour
             spawnX = spawnOnLeft ? -15f : 15f;
             spawnY = -1f;
         }
+
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
         // Instantiate the selected enemy prefab with the appropriate spawn position and rotation
@@ -129,10 +145,6 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemyComponent = enemy.GetComponent<Enemy>();
         enemyComponent.ratAnimator = enemy.GetComponent<Animator>();
         enemyComponent.enemyAI = enemy.GetComponent<EnemyAI>();
-
-        //Greif greifComponent = enemy.GetComponent<Greif>();
-        //greifComponent.greifAnimator = enemy.GetComponent<Animator>();
-        //greifComponent.greifAI = enemy.GetComponent<GreifAI>();
 
         if (selectedEnemyPrefab == greifPrefab)
         {

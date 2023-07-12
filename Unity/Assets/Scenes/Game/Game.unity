@@ -5095,7 +5095,7 @@ MonoBehaviour:
   spawnInterval: 5
   legionaerCountThreshold: 20
   spawnIntervals:
-  - duration: 100
+  - duration: 20
     ratSpawnProbability: 1
     legionaerSpawnProbability: 0
     greifSpawnProbability: 0

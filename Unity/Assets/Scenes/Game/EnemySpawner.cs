@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log($"Loewe Spawn Probability: {currentInterval.loeweSpawnProbability * 100}%");
     }
 
-    private void SpawnEnemy()
+   private void SpawnEnemy()
     {
         SpawnInterval currentInterval = GetSpawnInterval();
 
@@ -90,22 +90,19 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Determine the spawn position and side
-        bool spawnOnLeft = !bossSpawned && Random.value < 0.5f;
+        bool spawnOnLeft;
         float spawnX;
         float spawnY;
 
-        if (bossSpawned && selectedEnemyPrefab != bossPrefab)
+        if (selectedEnemyPrefab == greifPrefab)
         {
-            spawnX = spawnOnLeft ? -15f : 15f;
-            spawnY = -1f;
-        }
-        else if (selectedEnemyPrefab == greifPrefab)
-        {
+            spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for Greif enemies
             spawnX = spawnOnLeft ? -15f : 15f;
             spawnY = 2.6f;
         }
         else
         {
+            spawnOnLeft = Random.value < 0.5f || bossSpawned; // Randomly determine the side for other enemies, but always spawn on the opposite side if the boss has spawned
             spawnX = spawnOnLeft ? -15f : 15f;
             spawnY = -1f;
         }

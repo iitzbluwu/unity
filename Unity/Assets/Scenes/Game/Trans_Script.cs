@@ -16,6 +16,7 @@ public class Trans_Script : StateMachineBehaviour
         if (playCon_2.instance.isAttacking)
         {
             playCon_2.instance.myAnim.Play("Secutor_Attack_AB2");
+            playCon_2.instance.myAnim.Play("Senator_Attack_AB");
         }
     }
 

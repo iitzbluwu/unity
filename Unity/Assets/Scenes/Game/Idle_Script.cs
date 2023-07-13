@@ -16,6 +16,7 @@ public class Idle_Script : StateMachineBehaviour
         if (playCon_2.instance.isAttacking)
         {
             playCon_2.instance.myAnim.Play("Secutor_Attack_A1");
+            playCon_2.instance.myAnim.Play("Senator_Attack_A");
         }
     }
 

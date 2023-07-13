@@ -142,37 +142,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Meet Senatorius the Entitled, an unexpectedly thrown into the arena of
-    this gripping 2D beat ''em up video game due to his reckless financial misfortunes.
-    This once privileged senator finds himself armed with a pompous attitude, accompanied
-    by a small, mischievous dog. Together, they create an unconventional and unpredictable
-    force.
-
-
-
-    While lacking traditional weaponry, Senatorius employs an audacious
-    strategy. His loyal companion, the small dog, possesses a rather peculiar talent.
-    With a mischievous nature, the dog fearlessly urinates on opponents, disorienting
-    them and leaving them vulnerable to Senatorius''s unorthodox attacks. The high-pitched
-    barks of the dog are equally unsettling, often intimidating adversaries and sowing
-    confusion among their ranks.
-
-
-
-    Despite his initial lack of combat training,
-    Senatorius has learned to adapt. He relies on his cunning and resourcefulness,
-    utilizing the chaos caused by his canine companion to exploit weaknesses and
-    strike opportunistically. His unorthodox fighting style has surprised many opponents,
-    proving that even the most seemingly pampered individuals can rise to the occasion
-    when pushed to their limits.
-
-
-
-    Embark on an extraordinary journey with Senatorius
-    and his four-legged ally, as they navigate the treacherous arena filled with
-    battle-hardened opponents. Will their unusual tactics be enough to overcome the
-    odds, or will they fall victim to their own extravagance? Take control and decide
-    the fate of Senatorius the Entitled in this thrilling, unexpected adventure.'
+  m_text: Senator Julius Korruptus finds himself in the arena to his great dismay.
+    He was caught one too many times squandering the taxpayers' money on his orgies.
+    Fearful and lacking bravery, he faces the horde. Fortunately, his little lapdog
+    "Minimus" is far braver than he is and stands by his side energetically. And
+    this small dog can pack a big punch!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}

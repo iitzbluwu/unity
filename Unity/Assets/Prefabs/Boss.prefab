@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087ebea2cae8b1e439941ee8c2a954b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 20
   damageAmount: 1
   bossAnimator: {fileID: 7197620657803824133}
   enemyAI: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 1
+  speed: 0.5
   approachDistance: 5
   aniRat: {fileID: 7197620657803824133}
   isAlive: 1

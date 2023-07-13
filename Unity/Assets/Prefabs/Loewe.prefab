@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f965c215dbba26c48a9955136989138a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 12
   damageAmount: 1
   Greif_Ani: {fileID: 6424195803725545263}
   enemyAI: {fileID: 0}

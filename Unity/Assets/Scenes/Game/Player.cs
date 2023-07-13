@@ -16,10 +16,13 @@ public class Player : MonoBehaviour
     private bool isInvincible = false;
     public GameObject Death;
 
+    public Rigidbody2D rb;
+
     private PlayerBlock playerBlock;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         playerBlock = GetComponent<PlayerBlock>();
     }
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
         if (!isInvincible && !playerBlock.IsBlocking)
         {
             FindObjectOfType<AudioManager>().Play("PlayerHurt");
+            rb.velocity = Vector2.zero;
             HitnDeath.SetTrigger("hurt");
             currentHealth -= damage;
             Debug.Log("Player Health: " + currentHealth);

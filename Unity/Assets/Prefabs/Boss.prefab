@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087ebea2cae8b1e439941ee8c2a954b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 60
+  maxHealth: 28
   damageAmount: 1
   bossAnimator: {fileID: 7197620657803824133}
   enemyAI: {fileID: 0}

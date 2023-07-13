@@ -45,7 +45,7 @@ public class PlayerBlock : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("BlockOn");
             block_Ani.Play("Secutor_Block");
-            block_Ani.Play("Senator_Block_Final");
+            block_Ani.Play("Senator_Block_Final_New");
             StartBlocking();
         }
         else if (Input.GetKeyUp(blockKey))

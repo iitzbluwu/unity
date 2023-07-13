@@ -5395,6 +5395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 140758899}
+  Char2: {fileID: 373600066}
   speedOfset: 3
   posOffset: {x: 0, y: 0}
   leftlimit: -7.5

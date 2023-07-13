@@ -8,6 +8,9 @@ public class CameraFollow : MonoBehaviour
      GameObject player;
 
     [SerializeField]
+    GameObject Char2;
+
+    [SerializeField]
     float speedOfset;
 
     [SerializeField]
@@ -36,11 +39,20 @@ public class CameraFollow : MonoBehaviour
         Vector3 startPos = transform.position;
         
         Vector3 endPos = player.transform.position;
+        
         endPos.x += posOffset.x;
         endPos.y += posOffset.y;
         endPos.z = -10;
 
+        Vector3 endPos2 = Char2.transform.position;
+
+        endPos2.x += posOffset.x;
+        endPos2.y += posOffset.y;
+        endPos2.z = -10;
+
         transform.position = Vector3.Lerp(startPos, endPos, speedOfset*Time.deltaTime);
+
+        transform.position = Vector3.Lerp(startPos, endPos2, speedOfset * Time.deltaTime);
 
         transform.position = new Vector3
             (

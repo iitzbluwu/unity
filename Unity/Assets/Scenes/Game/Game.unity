@@ -832,7 +832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &140758900
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2156,7 +2156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &373600067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5395,6 +5395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 140758899}
+  Char2: {fileID: 373600066}
   speedOfset: 3
   posOffset: {x: 0, y: 0}
   leftlimit: -7.5

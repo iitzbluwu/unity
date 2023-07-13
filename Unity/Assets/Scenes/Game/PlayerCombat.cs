@@ -96,7 +96,17 @@ public class PlayerCombat : MonoBehaviour
 
     void StartCombo()
     {
-        FindObjectOfType<AudioManager>().Play("SwordSwoosh");
+        int chosenAvatar = PlayerPrefs.GetInt("Avatar");
+        if (chosenAvatar == 2)
+        {
+            //Debug.Log("2");
+            FindObjectOfType<AudioManager>().Play("SwordSwoosh2.1");
+        }
+        else 
+        {
+            //Debug.Log("1");
+            FindObjectOfType<AudioManager>().Play("SwordSwoosh");
+        }
         isAttacking = true;
         Invoke("Attack1", vor1);
         Invoke("Attack1Delayed", vor1 + nach1);
@@ -105,16 +115,31 @@ public class PlayerCombat : MonoBehaviour
 
     void ContinueCombo()
     {
+        int chosenAvatar = PlayerPrefs.GetInt("Avatar");
         if (comboTimer < vor2)
         {
-            FindObjectOfType<AudioManager>().Play("SwordSwoosh");
+            if (chosenAvatar == 2)
+            {
+                FindObjectOfType<AudioManager>().Play("SwordSwoosh2.2");
+            }
+            else 
+            {
+                FindObjectOfType<AudioManager>().Play("SwordSwoosh");
+            }
             Invoke("Attack2", vor2);
             Invoke("Attack2Delayed", vor2 + nach2);
             Invoke("Attack2Transition", vor2 + nach2 + trans2);
         }
         else if (comboTimer < vor3)
         {   
-            FindObjectOfType<AudioManager>().Play("SwordSwoosh");
+            if (chosenAvatar == 2)
+            {
+                return;
+            }
+            else 
+            {
+                FindObjectOfType<AudioManager>().Play("SwordSwoosh");
+            }
             Invoke("Attack3", vor3);
             Invoke("Attack3Delayed", vor3 + nach3);
             Invoke("Attack3Transition", vor3 + nach3 + trans3);
@@ -133,6 +158,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack1()
     {
+        int chosenAvatar = PlayerPrefs.GetInt("Avatar");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -141,20 +167,42 @@ public class PlayerCombat : MonoBehaviour
             if (enemyComponent != null)
             {
                 enemyComponent.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit1");
+
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                } 
             }
 
             Greif greif = enemy.GetComponent<Greif>();
             if (greif != null)
             {
                 greif.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                } 
             }
             Boss boss = enemy.GetComponent<Boss>();
             if (boss != null)
             {
                 boss.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit1");
+                } 
             }
 
             Debug.Log("Hit " + enemy.name);
@@ -175,6 +223,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack2()
     {
+        int chosenAvatar = PlayerPrefs.GetInt("Avatar");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -183,20 +232,41 @@ public class PlayerCombat : MonoBehaviour
             if (enemyComponent != null)
             {
                 enemyComponent.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                } 
             }
 
             Greif greif = enemy.GetComponent<Greif>();
             if (greif != null)
             {
                 greif.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                } 
             }
             Boss boss = enemy.GetComponent<Boss>();
             if (boss != null)
             {
                 boss.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit2");
+                } 
             }
 
             Debug.Log("Hit " + enemy.name);
@@ -216,6 +286,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack3()
     {
+        int chosenAvatar = PlayerPrefs.GetInt("Avatar");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -224,20 +295,41 @@ public class PlayerCombat : MonoBehaviour
             if (enemyComponent != null)
             {
                 enemyComponent.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                } 
             }
 
             Greif greif = enemy.GetComponent<Greif>();
             if (greif != null)
             {
                 greif.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                } 
             }
             Boss boss = enemy.GetComponent<Boss>();
             if (boss != null)
             {
                 boss.TakeDamage(attackDamage);
-                FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                if (chosenAvatar == 2)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                }
+                else 
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyHit3");
+                } 
             }
 
             Debug.Log("Hit " + enemy.name);

@@ -134,7 +134,7 @@ public class PlayerCombat : MonoBehaviour
         {   
             if (chosenAvatar == 2)
             {
-                return;
+                FindObjectOfType<AudioManager>().Play("SwordSwoosh2.2");
             }
             else 
             {

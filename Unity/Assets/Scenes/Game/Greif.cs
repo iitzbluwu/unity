@@ -15,7 +15,7 @@ public class Greif : MonoBehaviour
     private Rigidbody2D rb;
 
     private int randomIndex;
-    
+
     //public bool GreifdarfLaufen = true;
 
     void Awake()
@@ -64,9 +64,9 @@ public class Greif : MonoBehaviour
         if (currentHealth > 0)
         {        
             enemyAI.darfLaufen = false;
-            //Debug.Log("Laufen " + GreifdarfLaufen);
+            Debug.Log("Greif Laufen " + enemyAI.darfLaufen);
             //enemyAI.StopMovementDuringAttack();
-            //Invoke("allowLaufen", 2f);
+            Invoke("allowLaufen", 2f);
             Greif_Ani.SetTrigger("hurt");
         }
 
@@ -103,6 +103,6 @@ public class Greif : MonoBehaviour
     void allowLaufen()
     {
         enemyAI.darfLaufen = true;
-        //Debug.Log("Laufen: " + GreifdarfLaufen);
+        Debug.Log("Greif Laufen: " + enemyAI.darfLaufen);
     }
 }

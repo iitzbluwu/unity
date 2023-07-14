@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     private int randomIndex;
 
+    //public bool darfLaufen = true;
+
     void Awake()
     {
         randomIndex = UnityEngine.Random.Range(0, 2); // Generiere den Zufallsindex
@@ -59,7 +61,13 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        enemyAI.darfLaufen = false;
+        //Debug.Log("Laufen " + darfLaufen);
+        enemyAI.StopMovementDuringAttack();
+        Invoke("allowLaufen", 2f);
+        //ratAnimator.SetBool("laufen", false);
         ratAnimator.SetTrigger("Hurt");
+        //rb2d.velocity = Vector2.zero;
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -140,6 +148,11 @@ public class Enemy : MonoBehaviour
                 AttackDelay();
             }
         }
+    }
+    void allowLaufen()
+    {
+        enemyAI.darfLaufen = true;
+        //Debug.Log("Laufen: " + darfLaufen);
     }
 
     IEnumerator InflictDamageToPlayerAfterDelay(float delay)

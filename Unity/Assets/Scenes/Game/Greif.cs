@@ -15,6 +15,8 @@ public class Greif : MonoBehaviour
     private Rigidbody2D rb;
 
     private int randomIndex;
+    
+    //public bool GreifdarfLaufen = true;
 
     void Awake()
     {
@@ -23,6 +25,7 @@ public class Greif : MonoBehaviour
 
     void Start()
     {
+        //Debug.Log("Laufen " + GreifdarfLaufen);
         currentHealth = maxHealth;
         enemyAI = GetComponent<EnemyAI>();
         rb = GetComponent<Rigidbody2D>();
@@ -54,11 +57,16 @@ public class Greif : MonoBehaviour
             return; // Exit early if the Greif is already dead
         }
 
+        
         Debug.Log("Schaden am Greif!");
         currentHealth -= damage;
         
         if (currentHealth > 0)
         {        
+            enemyAI.darfLaufen = false;
+            //Debug.Log("Laufen " + GreifdarfLaufen);
+            //enemyAI.StopMovementDuringAttack();
+            //Invoke("allowLaufen", 2f);
             Greif_Ani.SetTrigger("hurt");
         }
 
@@ -91,5 +99,10 @@ public class Greif : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false; // Deaktiviert das Greif-Skript
         Destroy(gameObject); // Zerstört das Greif-Objekt
+    }
+    void allowLaufen()
+    {
+        enemyAI.darfLaufen = true;
+        //Debug.Log("Laufen: " + GreifdarfLaufen);
     }
 }

@@ -13,11 +13,18 @@ public class EnemyAI : MonoBehaviour
     private bool isMovementEnabled = true;
 
     private Rigidbody2D rb;
-    private EnemyAI[] allEnemies; // Array to store references to all enemies
+    private EnemyAI[] allEnemies; // Array to store references to all enemie
+
+    //private Enemy enemy;
+    //private Greif greif;
+
+    public bool darfLaufen = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        //greif = GetComponent<Greif>();
+        //enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         allEnemies = FindObjectsOfType<EnemyAI>(); // Find all enemies in the scene
@@ -38,8 +45,10 @@ public class EnemyAI : MonoBehaviour
 
         if (player != null)
         {
-            Vector2 direction = player.transform.position - transform.position;
-
+            if (darfLaufen == true)
+            {
+                Vector2 direction = player.transform.position - transform.position;
+            
             if (direction.magnitude > approachDistance)
             {
                 // Check if any enemy is already close to this enemy
@@ -57,9 +66,10 @@ public class EnemyAI : MonoBehaviour
                 direction.Normalize();
                 rb.velocity = direction * speed;
             }
-            else
-            {
-                StopMovement();
+                else
+                {
+                    StopMovement();
+                }
             }
         }
     }

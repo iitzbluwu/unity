@@ -108,7 +108,13 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            spawnOnLeft = Random.value < 0.5f || bossSpawned; // Randomly determine the side for other enemies, but always spawn on the opposite side if the boss has spawned
+            if (bossSpawned)
+            {
+                // No enemy to spawn after the boss has spawned
+                return;
+            }
+
+            spawnOnLeft = Random.value < 0.5f; // Randomly determine the side for other enemies before the boss has spawned
             spawnX = spawnOnLeft ? -15f : 15f;
             spawnY = -1f;
         }

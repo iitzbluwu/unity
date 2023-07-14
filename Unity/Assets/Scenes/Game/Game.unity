@@ -5538,7 +5538,7 @@ MonoBehaviour:
   loewePrefab: {fileID: 651835329327281369, guid: b2b3d2d99725f654fb1fa87646f0f2b6, type: 3}
   bossPrefab: {fileID: 7197620657803824139, guid: f62bc1baf57421c458be86e99f5d2358, type: 3}
   spawnInterval: 5
-  legionaerCountThreshold: 15
+  legionaerCountThreshold: 10
   spawnIntervals:
   - duration: 20
     ratSpawnProbability: 1

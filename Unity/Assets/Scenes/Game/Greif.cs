@@ -67,6 +67,7 @@ public class Greif : MonoBehaviour
             Debug.Log("Greif Laufen " + enemyAI.darfLaufen);
             //enemyAI.StopMovementDuringAttack();
             Invoke("allowLaufen", 2f);
+            Greif_Ani.SetBool("laufen", false);
             Greif_Ani.SetTrigger("hurt");
         }
 

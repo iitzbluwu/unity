@@ -5542,8 +5542,8 @@ MonoBehaviour:
   spawnIntervals:
   - duration: 20
     ratSpawnProbability: 0
-    legionaerSpawnProbability: 0.5
-    greifSpawnProbability: 0.5
+    legionaerSpawnProbability: 0
+    greifSpawnProbability: 1
     loeweSpawnProbability: 0
   - duration: 40
     ratSpawnProbability: 0.8
